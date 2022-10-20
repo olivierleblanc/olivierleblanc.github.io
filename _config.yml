@@ -114,7 +114,7 @@ defaults:
       header:
         overlay_image: /assets/images/header.jpg
         overlay_filter: linear-gradient(rgba(70, 77, 132, 0.5), rgba(118, 188, 232, 0.5))
-        caption: "Photo credit: [**Unsplash**](https://unsplash.com/photos/0C9VmZUqcT8)"
+        caption: "Photo credit: [**SALUT**](https://unsplash.com/photos/0C9VmZUqcT8)"
 
 
 
