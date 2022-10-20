@@ -26,7 +26,7 @@ markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 excerpt_separator: "\n\n"
 # Outputting
-permalink: /:categories/:title/
+permalink: #/:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: Europe/Brussels
@@ -57,33 +57,33 @@ plugins:
 author:
   name   : "Olivier Leblanc"
   avatar : "/assets/images/profile.png"
-  bio    : "PhD student in Differentiable Ray Tracing for Telecommunications."
+  bio    : "PhD student in Computational Imaging."
   location: "UCLouvain, Belgium"
   links:
     - label: "Contact"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:jerome.eertmans@uclouvain.be"
+      url: "mailto:o.leblanc@uclouvain.be"
     - label: "University Directory"
       icon: "fas fa-fw fa-graduation-cap"
-      url: "https://uclouvain.be/fr/repertoires/jerome.eertmans"
+      url: "https://uclouvain.be/fr/repertoires/o.leblanc"
     - label: "Google Scholar"
       icon: "fab fa-fw fa-google"
-      url: "https://scholar.google.com/citations?user=bVbwyxAAAAAJ"
+      url: "https://scholar.google.com/citations?user=PXm-ig8AAAAJ&hl=fr&oi=sra"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jeertmans"
+      url: "https://github.com/reivilo3"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/j%C3%A9rome-eertmans-130ab1130/"
+      url: "https://www.linkedin.com/in/olivier-leblanc-210771163/"
     - label: "ORCID"
       icon: "fab fa-fw fa-orcid"
-      url: "https://orcid.org/0000-0002-5579-5360"
+      url: "https://orcid.org/0000-0002-3708-9374"
 
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/reivilo3/olivierleblanc.github.io"
+      url: "https://github.com/reivilo3.github.io"
 
 defaults:
   # _posts
@@ -128,12 +128,12 @@ tag_archive:
 github: [metadata]
 
 # https://github.com/jekyll/jekyll/issues/4705
-repository: reivilo3/olivierleblanc.github.io
+repository: reivilo3/reivilo3.github.io
 
 comments:
   provider: "utterances"
   utterances:
-    theme: "github-light" # "github-dark"
+    theme: "github-dark" # "github-light"
     issue_term: "pathname"
     label: "comment" # Optional - must be existing label.
 

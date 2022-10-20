@@ -3,12 +3,10 @@ permalink: /about/
 title: "About"
 ---
 
-Hello, I am Jérome and welcome to my personal blog!
+Welcome to my homepage! I am a PhD student at UCLouvain in Louvain-la-Neuve <iframe src="https://www.google.com/maps/place/Louvain-la-Neuve,+1348+Ottignies-Louvain-la-Neuve/@50.6680791,4.5943228,14z/data=!3m1!4b1!4m5!3m4!1s0x47c17e05f083ac27:0x171325f53f02977e!8m2!3d50.668081!4d4.6118324" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> under the supervision of [Pr. Laurent Jacques](https://uclouvain.be/en/directories/laurent.jacques). I am affiliated to the ISPgroup research team. Find my complete cursus and more about me here.
 
-I am a PhD student working at UCLouvain as a Teaching Assistant, under the supervision of [Pr. Claude Oestges](https://uclouvain.be/en/directories/Claude.Oestges) and [Pr. Laurent Jacques](https://uclouvain.be/en/directories/laurent.jacques). I work within COmmunication SYstems (COSY) group and my research topic is *Differentiable Ray Tracing for Telecommunications*.
+My research is about drawing on signal processing insights to reduce the computational cost of machine learning methods; see more on my research page. Don't hesitate to also check out my list of publications and related code.
 
-Beside my academical research, I really like to develop open source softwares. While most of my projects stay under the radar, some received more attention, such as [ADE Scheduler](https://github.com/ADE-Scheduler/ADE-Scheduler), a scheduling tool used by thousands of people at my university.
+ I work within Institute of Signal Processing Group (ISPG) and my research topic is *GeneCI: Physically-Driven and Generative Neural Networks for Computational Imaging*.
 
-On this blog, you will find posts on topcis related to my research, but also on side projects or things that I think are work talking about.
 
-If you have any question, do not hesitate to reach me!
