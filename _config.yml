@@ -13,8 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jérome Eertmans
-email: jerome.eertmans@uclouvain.be
+title: Olivier Leblanc
+email: o.leblanc@uclouvain.be
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my personal website, where I talk about my research, as well as my teachings and other side projects.
 github_username: jeertmans
@@ -55,7 +55,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Jérome Eertmans"
+  name   : "Olivier Leblanc"
   avatar : "/assets/images/profile.png"
   bio    : "PhD student in Differentiable Ray Tracing for Telecommunications."
   location: "UCLouvain, Belgium"
@@ -83,7 +83,7 @@ footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jeertmans/jeertmans.github.io"
+      url: "https://github.com/reivilo3/olivierleblanc.github.io"
 
 defaults:
   # _posts
