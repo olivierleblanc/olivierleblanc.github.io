@@ -17,19 +17,19 @@ minimal_mistakes_skin2   : "dark"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "vladsiv"
+title                    : "olivierleblanc"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "vladsiv"
+name                     : "Olivier Leblanc"
 port                     : 4000
 host                     : "0.0.0.0"
 description              : "A blog discussing topics around programming, data science/engineering, and cloud technologies."
-url                      : https://www.vladsiv.com
+url                      : https://www.olivierleblanc.com
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "olivierleblanc" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : " " # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : "Olivier Leblanc" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -62,8 +62,8 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : true
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
@@ -82,7 +82,7 @@ baidu_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : vlad_siv
+  username               : 
 facebook:
   username               :
   app_id                 :
@@ -105,67 +105,57 @@ analytics:
 
 # Site Author
 author:
-  name             : "Vladsiv"
-  avatar           : "/assets/images/avatar.jpg"
-  bio              : "Theoretical physicist & biophysicist interested in programming, data science/engineering, and cloud technologies."
-  location         : "Novi Sad, Serbia"
-  email            : "vladsiv@protonmail.com"
+  # name   : "Olivier Leblanc"
+  avatar : "/assets/images/profile.png"
+  bio    : "PhD student in Computational Imaging."
+  location:  <a href="https://www.google.com/maps?client=opera&q=louvain+la+neuve" target="_blank">UCLouvain, Belgium.</a>
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: https://github.com/VladimirSiv
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: https://www.instagram.com/vlad__siv/
-    - label: "StackOverflow"
-      icon: "fab fa-fw fa-stack-overflow"
-      url: https://stackoverflow.com/users/10947997/vlad-siv
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: https://rs.linkedin.com/in/vladimirsiv
-    - label: "HackerNews"
-      icon: "fab fa-fw fa-hacker-news"
-      url: https://news.ycombinator.com/user?id=vladsiv
+    - label: "" #"Contact"
+      icon: "fas fa-fw fa-envelope fa-2x"
+      url: "mailto:o.leblanc@uclouvain.be"
+    # - label: "University Directory"
+    #   icon: "fas fa-fw fa-graduation-cap"
+    #   url: "https://uclouvain.be/fr/repertoires/o.leblanc"
+    - label: "" #"Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap fa-2x" #"fab fa-fw fa-google"
+      url: "https://scholar.google.com/citations?user=PXm-ig8AAAAJ&hl=fr&oi=sra"
+    - label: "" #"GitHub"
+      icon: "fab fa-fw fa-github fa-2x" #"fab fa-fw fa-github"
+      url: "https://github.com/olivierleblanc"
+    - label: "" #"LinkedIn"
+      icon: "fab fa-fw fa-linkedin fa-2x"
+      url: "https://www.linkedin.com/in/olivier-leblanc-210771163/"
+    - label: "" #"ORCID"
+      icon: "fab fa-fw fa-orcid fa-2x"
+      url: "https://orcid.org/0000-0002-3708-9374"
 
-# Site Footer
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github fa-lg"
-      # url: https://github.com/VladimirSiv
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
-    - label: "StackOverflow"
-      icon: "fab fa-fw fa-stack-overflow fa-lg"
-      # url: https://stackoverflow.com/users/10947997/vlad-siv
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin fa-lg"
-      # url: https://rs.linkedin.com/in/vladimirsiv
+# # Site Footer
+# footer:
+#   links:
+#     - label: "Twitter"
+#       icon: "fab fa-fw fa-twitter-square"
+#       # url:
+#     - label: "Facebook"
+#       icon: "fab fa-fw fa-facebook-square"
+#       # url:
+#     - label: "GitHub"
+#       icon: "fab fa-fw fa-github fa-lg"
+#       # url: https://github.com/VladimirSiv
+#     - label: "GitLab"
+#       icon: "fab fa-fw fa-gitlab"
+#       # url:
+#     - label: "Bitbucket"
+#       icon: "fab fa-fw fa-bitbucket"
+#       # url:
+#     - label: "Instagram"
+#       icon: "fab fa-fw fa-instagram"
+#       # url:
+#     - label: "StackOverflow"
+#       icon: "fab fa-fw fa-stack-overflow fa-lg"
+#       # url: https://stackoverflow.com/users/10947997/vlad-siv
+#     - label: "LinkedIn"
+#       icon: "fab fa-fw fa-linkedin fa-lg"
+#       # url: https://rs.linkedin.com/in/vladimirsiv
 
 
 # Reading Files
