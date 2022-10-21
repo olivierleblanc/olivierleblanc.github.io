@@ -1,12 +1,37 @@
-_site
-.sass-cache
-.jekyll-metadata
+# Vim
+*~
+*.sw[p_]
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Ruby Gem
+*.gem
+.bundle
 Gemfile.lock
-vendor/*
+**/vendor/bundle
 
-.bundle/
+# Node.js and NPM
+node_modules
+npm-debug.log*
+package-lock.json
+codekit-config.json
 
-_notebooks/.ipynb_checkpoints/
+# macOS
+.DS_Store
 
-.vscode/
-.github/
+# Jekyll generated files
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+_asset_bundler_cache
+_site
+
+# Minimal mistakes
+docs
+test
+.editorconfig
+.gitattributes
+banner.js
+.travis.yml
