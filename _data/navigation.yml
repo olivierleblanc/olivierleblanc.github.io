@@ -2,9 +2,11 @@
 main:
   - title: "Home"
     url: /
-  - title: "Cool Links"
-    url: /cool-links/
-  - title: "Archive"
-    url: /archive/
+  - title: "Pulications"
+    url: /publications/
+  - title: "Events"
+    url: /events/
+  - title: "Teaching"
+    url: /teaching/
   - title: "About"
     url: /about/
