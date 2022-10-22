@@ -74,7 +74,7 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification : 5qmVAoKbvLFrdg67H4uC3o7zWXM4UQKYdJnWrye8KFc
+google_site_verification : 
 bing_site_verification   :
 naver_site_verification  :
 yandex_site_verification :
@@ -111,22 +111,22 @@ author:
   location:  <a href="https://www.google.com/maps?client=opera&q=louvain+la+neuve" target="_blank">UCLouvain, Belgium.</a>
   links:
     - label: "" #"Contact"
-      icon: "fas fa-fw fa-envelope fa-2x"
+      icon: "fas fa-fw fa-envelope"
       url: "mailto:o.leblanc@uclouvain.be"
     # - label: "University Directory"
     #   icon: "fas fa-fw fa-graduation-cap"
     #   url: "https://uclouvain.be/fr/repertoires/o.leblanc"
     - label: "" #"Google Scholar"
-      icon: "fas fa-fw fa-graduation-cap fa-2x" #"fab fa-fw fa-google"
+      icon: "fas fa-fw fa-graduation-cap" #"fab fa-fw fa-google"
       url: "https://scholar.google.com/citations?user=PXm-ig8AAAAJ&hl=fr&oi=sra"
     - label: "" #"GitHub"
-      icon: "fab fa-fw fa-github fa-2x" #"fab fa-fw fa-github"
+      icon: "fab fa-fw fa-github" #"fab fa-fw fa-github"
       url: "https://github.com/olivierleblanc"
     - label: "" #"LinkedIn"
-      icon: "fab fa-fw fa-linkedin fa-2x"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/olivier-leblanc-210771163/"
     - label: "" #"ORCID"
-      icon: "fab fa-fw fa-orcid fa-2x"
+      icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-3708-9374"
 
 # # Site Footer

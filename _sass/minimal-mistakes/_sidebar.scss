@@ -8,13 +8,6 @@
 
 .sidebar {
   @include clearfix();
-  // @include breakpoint(max-width $large) {
-  //   /* fix z-index order of follow links */
-  //   position: relative;
-  //   z-index: 10;
-  //   -webkit-transform: translate3d(0, 0, 0);
-  //   transform: translate3d(0, 0, 0);
-  // }
 
   @include breakpoint($large) {
     float: left;
@@ -449,7 +442,7 @@
   }
 
   ul {
-    padding: 10px;
+    padding: 1px;
     list-style-type: none;
   }
 
@@ -457,7 +450,7 @@
     display: inline-block; // For putting icons next to each other
     white-space: nowrap;
     color: inherit;
-    font-size: $type-size-5; // Font size of the links and icons! Can be put in a{} but then doesn't change localisation icon.
+    font-size: $type-size-3; // Font size of the links and icons! Can be put in a{} but then doesn't change localisation icon.
     &:hover{
       scale: 1.2;
     }
