@@ -20,9 +20,9 @@
   -webkit-transition: 0.1s;
   transition: 0.1s;
 
-  &:hover {
-    // color: mix(#000, $primary-color, 50%);
-    scale: 1.4;
+  &:hover { // Beware: if scale is chosen, the hitbox of the button should be adapted!
+    color: mix($info-color, $primary-color, 80%);
+    // scale: 1.4;
   }
 }
 
