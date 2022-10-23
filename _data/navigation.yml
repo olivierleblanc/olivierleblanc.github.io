@@ -8,5 +8,7 @@ main:
     url: /events/
   - title: "Teaching"
     url: /teaching/
+  - title: "Worth Sharing"
+    url: /worth_sharing/
   - title: "About"
     url: /about/
