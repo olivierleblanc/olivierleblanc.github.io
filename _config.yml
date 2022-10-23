@@ -22,9 +22,9 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Olivier Leblanc"
 port                     : 4000
-host                     : "0.0.0.0"
+host                     : "127.0.0.1"
 description              : "A blog discussing topics around programming, data science/engineering, and cloud technologies."
-url                      : https://www.olivierleblanc.com
+url                      : https://olivierleblanc.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "olivierleblanc" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
