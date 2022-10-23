@@ -1,3 +1,45 @@
+.abstract
+{
+    color: inherit;
+    text-align: justify;
+}
+
+.abstract:hover
+{
+    color: rgb(19, 111, 205);
+    cursor: pointer;
+}
+
+.download_icon
+{
+    float: right;
+}
+
+.download_icon img
+{
+    margin-left: 8px;
+    width: 18px;
+}
+
+.publi
+{
+    margin-bottom: 10px;
+    /*background-color: yellow; /* FOR DEBUG */ 
+    max-width: 750px;
+}
+
+.publi em,mark /* for authors, incl me */
+{
+    font-style: italic;
+    background-color: white;
+}
+
+.publi em /* for authors but me only */
+{
+    text-decoration: underline;
+}
+
+
 /* ==========================================================================
    SINGLE PAGE/POST
    ========================================================================== */
