@@ -22,8 +22,7 @@ modifying, adding data elements, changing compression, creating DICOM
 files for testing, and masking parts of images for de-identification purposes.
 
 If you are new to the DICOM Standard and you are not sure how the DICOM file 
-format works, please read 
-[DICOM Basics]({% post_url 2021-12-01-dicom-file-format-basics %}) first.
+format works, please read.
 
 > **Disclaimer**: Everything presented here is part of public knowledge and can 
 be found in referenced material.
