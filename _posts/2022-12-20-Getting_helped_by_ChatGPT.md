@@ -1,17 +1,16 @@
 ---
-title: "Achieving Scalable Multilingual Semantic Search"
-page_title: "Achieving Scalable Multilingual Semantic Search"
-excerpt: "Basics of seq2seq architecture, ANNs, multilingual model, 
-and how to use them to achieve scalable multilingual semantic search"
-date: February 1, 2022
+title: "Getting helped by ChatGPT"
+page_title: "Getting helped by ChatGPT"
+excerpt: ""
+date: December 20, 2022
 toc: true
 toc_label: "Content"
 toc_sticky: true
-last_modified_at: February 1, 2022
+last_modified_at: December 20, 2022
 og_image: /assets/images/posts/semantic-search/similarity-header.jpg
 ---
 
-<div class="formula">
+<!-- <div class="formula">
     $${\Large\mathrm{Attention}(Q, K, V) = \mathrm{softmax}(\frac{QK^T}{\sqrt{d_k}})V}$$
 </div>
 
@@ -19,11 +18,11 @@ og_image: /assets/images/posts/semantic-search/similarity-header.jpg
     src="/assets/images/posts/semantic-search/similarity-header.jpg"
     alt="similarity-header"
     caption="<a href='https://www.sciencedirect.com/science/article/abs/pii/S0925231216306324' target='_blank'>Image Source</a>"
-%}
+%} -->
 
 ## Introduction
 
-This article is based on the work I did for a project that involved 
+<!-- This article is based on the work I did for a project that involved 
 millions of documents in different languages. The goal was to build a system 
 that could retrieve documents in multiple languages based on an input query in 
 one language. The purpose of this article is to give a very high-level picture 
@@ -693,4 +692,4 @@ available.
 - [How do Transformers Work in NLP? A Guide to the Latest State-of-the-Art Models](https://www.analyticsvidhya.com/blog/2019/06/understanding-transformers-nlp-state-of-the-art-models/){:target="_blank"}
 - [Comprehensive Guide To Approximate Nearest Neighbors Algorithms](https://towardsdatascience.com/comprehensive-guide-to-approximate-nearest-neighbors-algorithms-8b94f057d6b6){:target="_blank"}
 - [Product Quantization: Compressing high-dimensional vectors by 97%](https://www.pinecone.io/learn/product-quantization/){:target="_blank"}
-- [Nearest neighbors and vector models – part 2 – algorithms and data structures](https://erikbern.com/2015/10/01/nearest-neighbors-and-vector-models-part-2-how-to-search-in-high-dimensional-spaces.html){:target="_blank"}
+- [Nearest neighbors and vector models – part 2 – algorithms and data structures](https://erikbern.com/2015/10/01/nearest-neighbors-and-vector-models-part-2-how-to-search-in-high-dimensional-spaces.html){:target="_blank"} -->

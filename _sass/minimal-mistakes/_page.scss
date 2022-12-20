@@ -72,7 +72,9 @@ body {
           flex-direction: column;
 }
 
-.initial-content,
+.initial-content{
+  margin-top: $bar-height;
+}
 .search-content {
   flex: 1 0 auto;
 }

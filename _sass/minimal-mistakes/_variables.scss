@@ -19,7 +19,7 @@ $sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 $latex: CMU-serif !default;
 
-$font-choice: $latex; //$sans-serif;
+$font-choice: $sans-serif; //$latex;
 
 /* sans serif typefaces */
 $sans-serif-narrow: $sans-serif !default;
@@ -170,6 +170,7 @@ $sidebar-choice: right-sidebar-width-narrow !default;
 
 $border-radius: 4px !default;
 $box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default;
+$bar-height: 100px !default;
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
 $navicon-width: 1.5rem !default;
