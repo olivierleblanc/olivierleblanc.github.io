@@ -22,7 +22,7 @@ computational optimization, and high performance computing.
 In my spare time I enjoy taking walks, learning new languages, 
 drawing, and sometimes playing the guitar. -->
 
-I am a PhD student at UCLouvain in Louvain-la-Neuve under the supervision of [Pr. Laurent Jacques](https://uclouvain.be/en/directories/laurent.jacques). Find my complete cursus and more about me here.
+I am a PhD student at UCLouvain in Louvain-la-Neuve under the supervision of [Pr. Laurent Jacques](https://laurentjacques.gitlab.io). Find my complete cursus and more about me here.
 
 ### Research
 

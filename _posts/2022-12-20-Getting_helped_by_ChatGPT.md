@@ -22,6 +22,7 @@ og_image: /assets/images/posts/semantic-search/similarity-header.jpg
 
 ## Introduction
 
+
 <!-- This article is based on the work I did for a project that involved 
 millions of documents in different languages. The goal was to build a system 
 that could retrieve documents in multiple languages based on an input query in 

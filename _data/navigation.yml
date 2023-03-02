@@ -2,6 +2,8 @@
 main:
   - title: "Home"
     url: /
+  - title: "About"
+    url: /about/
   - title: "Publications"
     url: /publications/
   - title: "Events"
@@ -10,5 +12,3 @@ main:
     url: /teaching/
   - title: "Worth Sharing"
     url: /worth_sharing/
-  - title: "About"
-    url: /about/
