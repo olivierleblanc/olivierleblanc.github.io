@@ -1,0 +1,19 @@
+/* ==========================================================================
+   THEME TOGGLE
+   ========================================================================== */
+
+.theme__toggle {
+  height: $nav-toggle-height;
+  border: 0;
+  outline: none;
+  color: inherit; //$primary-color;
+  background-color: transparent;
+  cursor: pointer;
+  // -webkit-transition: 0.1s;
+  // transition: 0.1s;
+
+  &:hover { // Beware: if scale is chosen, the hitbox of the button should be adapted!
+    // scale: 1.4;
+    color: mix($info-color, $primary-color, 100%);
+  }
+}

@@ -22,6 +22,7 @@ og_image: /assets/images/posts/semantic-search/similarity-header.jpg
 
 ## Introduction
 
+
 <!-- This article is based on the work I did for a project that involved 
 millions of documents in different languages. The goal was to build a system 
 that could retrieve documents in multiple languages based on an input query in 
@@ -191,7 +192,7 @@ buckets based on similarity between vectors.
 {% include image.html
     src="/assets/images/posts/semantic-search/lsh.jpg"
     alt="lsh"
-    caption="LSH representation of buckets. <a href='https://randorithms.com/assets/img/2019-09-19-LSH-vs-random.png' target='_blank'>Source</a>"
+    caption="LSH representation of buckets. <a href='https://randorithms.com/assets/images/2019-09-19-LSH-vs-random.png' target='_blank'>Source</a>"
 %}
 
 - **Encoding using Quantization**: Another approach is to map the vector space 

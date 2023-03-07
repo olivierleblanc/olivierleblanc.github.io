@@ -4,5 +4,42 @@
 
 @charset "utf-8";
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin2 | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+@import "themes/{{ site.theme2 | default: 'default' }}"; 
+
+/* Variables */
+@import "variables";
+
+/* Mixins and functions */
+@import "vendor/breakpoint/breakpoint";
+@include breakpoint-set("to ems", true);
+@import "vendor/magnific-popup/magnific-popup"; // Magnific Popup
+@import "vendor/susy/susy";
+@import "mixins";
+
+/* Core CSS */
+@import "reset";
+@import "base";
+@import "forms";
+@import "tables";
+@import "animations";
+
+/* Components */
+@import "buttons";
+@import "notices";
+@import "masthead";
+@import "navigation";
+@import "search";
+@import "theme_toggle";
+@import "syntax";
+
+/* Utility classes */
+@import "utilities";
+
+/* Layout specific */
+@import "page";
+@import "archive";
+@import "sidebar";
+@import "print";
+
+/* Custom */
+@import "custom"
