@@ -12,7 +12,7 @@ function showBib(element) {
 <div class="row">
   <h1>
     {%- if entry.abbr -%}
-        <img class="card-img-top" src="{{ entry.abbr | prepend: '/assets/images/' | prepend: site.baseurl | prepend: site.url }}" width="200px">
+        <img class="card-img-top" src="{{ entry.abbr | prepend: '/assets/images/'}}" width="200px">
     {%- endif -%}
   </h1>
   <h2>
