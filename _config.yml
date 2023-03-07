@@ -236,6 +236,15 @@ defaults:
 scholar_userid: PXm-ig8AAAAJ&hl # your Google Scholar ID
 
 scholar:
+  style: apa
+  locale: en
+
+  sort_by: none
+  order: ascending
+
+  group_by: none
+  group_order: ascending
+
   source: /_bibliography/
   bibliography: papers.bib
   bibliography_template: bib
