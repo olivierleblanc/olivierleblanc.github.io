@@ -6,8 +6,8 @@ main:
     url: /about/
   - title: "Publications"
     url: /publications/
-  - title: "Events"
-    url: /events/
+  - title: "Talks"
+    url: /talks/
   - title: "Teaching"
     url: /teaching/
   - title: "Worth Sharing"

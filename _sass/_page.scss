@@ -1,14 +1,14 @@
-.abstract
-{
-    color: inherit;
-    text-align: justify;
-}
+// .abstract
+// {
+//     color: inherit;
+//     text-align: justify;
+// }
 
-.abstract:hover
-{
-    color: rgb(19, 111, 205);
-    cursor: pointer;
-}
+// .abstract:hover
+// {
+//     color: rgb(19, 111, 205);
+//     cursor: pointer;
+// }
 
 .download_icon
 {
@@ -134,11 +134,6 @@ body {
 }
 
 .page__content {
-  h2 {
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
-  }
-
 	h1, h2, h3, h4, h5, h6 {
 		.header-link {
 			position: relative;

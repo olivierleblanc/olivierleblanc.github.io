@@ -18,108 +18,73 @@ As a french speaking belgian person, I'm sharing with you content both in french
 Channels <br>
 
 <center> French </center>
-[<img
-    src="https://www.tipeeestream.com/cdn-cgi/image/onerror=redirect,width=400,height=400,fit=cover/https://api.tipeee.com/mmcMediaPlugin/media/image/24/245641051be024cfd1ce23afbd47d08c8eba9f82.png"
-    width="80px"
-/>](https://www.youtube.com/@ScienceEtonnante/videos)
+<a href="https://www.youtube.com/@ScienceEtonnante/videos" target="_blank"><img
+    src="https://www.tipeeestream.com/cdn-cgi/image/onerror=redirect,width=400,height=400,fit=cover/https://api.tipeee.com/mmcMediaPlugin/media/image/24/245641051be024cfd1ce23afbd47d08c8eba9f82.png" width="80px"/></a>
 By far my favorite french vulgarisation channel. Mostly talking about physics and AI.
 <br>
-[<img
-    src="https://yt3.googleusercontent.com/bCA8DmyyxfImTZom7d3K6tlopuEvFbiBWdkncBvGRWW17OXvb5fQWkBSGG5X0O5UGuBO9Xki=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@monsieurbidouille)
+<a href="https://www.youtube.com/@monsieurbidouille" target="_blank"><img
+    src="https://yt3.googleusercontent.com/bCA8DmyyxfImTZom7d3K6tlopuEvFbiBWdkncBvGRWW17OXvb5fQWkBSGG5X0O5UGuBO9Xki=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img
-    src="https://yt3.ggpht.com/trkEwcdvT98l-oGCC-v2Y69wUfDURCLGW0PeY1f5TBTF8QCfD0rZ9HsjBQIurKrNg9yLEUaG=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@dirtybiology)
+<a href="https://www.youtube.com/@dirtybiology" target="_blank"><img
+    src="https://yt3.ggpht.com/trkEwcdvT98l-oGCC-v2Y69wUfDURCLGW0PeY1f5TBTF8QCfD0rZ9HsjBQIurKrNg9yLEUaG=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img
-    src="https://yt3.googleusercontent.com/ytc/AMLnZu87ecerrIM39qUKxbrGPHPKVpi_izE57hjMVuwdMQ=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@Fouloscopie)
+<a href="https://www.youtube.com/@Fouloscopie" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu87ecerrIM39qUKxbrGPHPKVpi_izE57hjMVuwdMQ=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img src="https://yt3.googleusercontent.com/xeGMGAOlacH8PQly5i1bJhRGK8IYcMaQ4W8MyqSlcUVxWtAoITRsgewDH6DEaAlaotnHl0UY=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@ScienceClic)
+<a href="https://www.youtube.com/@ScienceClic" target="_blank"><img
+    src="https://yt3.googleusercontent.com/xeGMGAOlacH8PQly5i1bJhRGK8IYcMaQ4W8MyqSlcUVxWtAoITRsgewDH6DEaAlaotnHl0UY=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img src="https://yt3.googleusercontent.com/ytc/AMLnZu-11lddlPvuGhWuHkGK7ciWJtebxM6gVn5EaoQU3g=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@PasseScience/)
-
-
+<a href="https://www.youtube.com/@PasseScience/" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu-11lddlPvuGhWuHkGK7ciWJtebxM6gVn5EaoQU3g=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
 <center> English </center>
-[<img
-    src="https://yt3.googleusercontent.com/ytc/AMLnZu-FU1d2Jd6AKRDpCwrxrraoKJ3Nrtk4iMpHBdAV4Q=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@veritasium)
+<a href="https://www.youtube.com/@veritasium" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu-FU1d2Jd6AKRDpCwrxrraoKJ3Nrtk4iMpHBdAV4Q=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img
-    src="https://upload.wikimedia.org/wikipedia/commons/b/ba/3B1B_Logo.png"
-    width="80px"
-/>](https://www.youtube.com/@3blue1brown)
+<a href="https://www.youtube.com/@3blue1brown" target="_blank"><img
+    src="https://upload.wikimedia.org/wikipedia/commons/b/ba/3B1B_Logo.png" width="80px"/></a>
 <br>
-[<img
-    src="https://yt3.ggpht.com/ytc/AMLnZu88f8bay1TND53bUscQZUsY8qm6PP7diUFkW3ntJA=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@Eigensteve)
+<a href="https://www.youtube.com/@Eigensteve" target="_blank"><img
+    src="https://yt3.ggpht.com/ytc/AMLnZu88f8bay1TND53bUscQZUsY8qm6PP7diUFkW3ntJA=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img
-    src="https://yt3.googleusercontent.com/ytc/AMLnZu8B3Q1hLo0DTXMlAaUDvo9Jau8wlwklGy43hOF27Q=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@smartereveryday)
+<a href="https://www.youtube.com/@smartereveryday" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu8B3Q1hLo0DTXMlAaUDvo9Jau8wlwklGy43hOF27Q=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img
-    src="https://yt3.googleusercontent.com/ytc/AMLnZu-3jzx7LemCpLyGrI0kC06xEq9DNxQo9DFsOX0JZg=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@standupmaths)
-
-
+<a href="https://www.youtube.com/@standupmaths" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu-3jzx7LemCpLyGrI0kC06xEq9DNxQo9DFsOX0JZg=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 
 ### Makers
-[<img
-    src="https://yt3.ggpht.com/ytc/AMLnZu-VCKwqjLUDfPxn45KSi-m7-XLNyNof_541geChdg=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@colinfurze)
+<a href="https://www.youtube.com/@colinfurze" target="_blank"><img
+    src="https://yt3.ggpht.com/ytc/AMLnZu-VCKwqjLUDfPxn45KSi-m7-XLNyNof_541geChdg=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img
-    src="https://yt3.ggpht.com/ytc/AMLnZu9VttYJ0LK_BNjP4HLtrd99ESiNIoCeq0N5DCiD=s900-c-k-c0x00ffffff-no-rj"
-    width="80px"
-/>](https://www.youtube.com/@ivanmirandawastaken)
+<a href="https://www.youtube.com/@ivanmirandawastaken" target="_blank"><img
+    src="https://yt3.ggpht.com/ytc/AMLnZu9VttYJ0LK_BNjP4HLtrd99ESiNIoCeq0N5DCiD=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img src="https://yt3.ggpht.com/ytc/AMLnZu-qB86CaqiwAY7KaCI69dzgKxSmlzxb9oWAdthGlg=s900-c-k-c0x00ffffff-no-rj" width="80px"
-/>](https://www.youtube.com/@MakersMuse)
+<a href="https://www.youtube.com/@MakersMuse" target="_blank"><img
+    src="https://yt3.ggpht.com/ytc/AMLnZu-qB86CaqiwAY7KaCI69dzgKxSmlzxb9oWAdthGlg=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 <br>
-[<img src="https://yt3.googleusercontent.com/ytc/AMLnZu-3wGc4sZnvHaPb5NM60ayUSgT3LxlWhcdtezzW=s900-c-k-c0x00ffffff-no-rj" width="80px"
-/>](https://www.youtube.com/@StuffMadeHere)
-
-
+<a href="https://www.youtube.com/@StuffMadeHere" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu-3wGc4sZnvHaPb5NM60ayUSgT3LxlWhcdtezzW=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 
 ### Philosophy
 
 Channels <br>
 
-[<img src="https://yt3.googleusercontent.com/ytc/AMLnZu80aClNpgBwZ5TtzY1FsBUtq5i9dXeehSTsj-paVg=s900-c-k-c0x00ffffff-no-rj" width="80px"
-/>](https://www.youtube.com/@MonsieurPhi)
-[<img src="https://yt3.googleusercontent.com/ytc/AMLnZu9Qu8EprX6UwlefwgywYKnjh71o__HKZqU2yjC5=s900-c-k-c0x00ffffff-no-rj" width="80px"
-/>](https://www.youtube.com/@Philoxime)
-
-
+<a href="https://www.youtube.com/@MonsieurPhi" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu80aClNpgBwZ5TtzY1FsBUtq5i9dXeehSTsj-paVg=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
+<a href="https://www.youtube.com/@Philoxime" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu9Qu8EprX6UwlefwgywYKnjh71o__HKZqU2yjC5=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 
 ### Socio-economics, ecology & ethics
 
 Channels <br>
 
-[<img src="https://yt3.ggpht.com/ytc/AMLnZu99a7pcSQrM1H9dMjqlHtZq_aYRfr6h55EXGI42ZA=s900-c-k-c0x00ffffff-no-rj" width="80px"
-/>](https://www.youtube.com/@LEROIDESRATS)
-[<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/26/Stupid_Economics_Logo.jpg/1200px-Stupid_Economics_Logo.jpg" width="80px"
-/>](https://www.youtube.com/@StupidEco)
-[<img src="https://yt3.googleusercontent.com/ytc/AMLnZu8vB76AL7ZOXXfoxcgieuaKuYmRR9gi2ReZTWYz=s900-c-k-c0x00ffffff-no-rj" width="80px"
-/>](https://www.youtube.com/@LeReveilleur)
-
-
-
+<a href="https://www.youtube.com/@LEROIDESRATS" target="_blank"><img
+    src="https://yt3.ggpht.com/ytc/AMLnZu99a7pcSQrM1H9dMjqlHtZq_aYRfr6h55EXGI42ZA=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
+<a href="https://www.youtube.com/@StupidEco" target="_blank"><img
+    src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/26/Stupid_Economics_Logo.jpg/1200px-Stupid_Economics_Logo.jpg" width="80px"/></a>
+<a href="https://www.youtube.com/@LeReveilleur" target="_blank"><img
+    src="https://yt3.googleusercontent.com/ytc/AMLnZu8vB76AL7ZOXXfoxcgieuaKuYmRR9gi2ReZTWYz=s900-c-k-c0x00ffffff-no-rj" width="80px"/></a>
 
 <!-- ## Blogs
 

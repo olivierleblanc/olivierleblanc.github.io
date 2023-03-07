@@ -184,7 +184,7 @@
     transition: none;
 
     &:hover {
-      color: $masthead-link-color-hover;
+      color: $masthead-link-color-hover; // Name of the person
     }
 
     &.site-logo {

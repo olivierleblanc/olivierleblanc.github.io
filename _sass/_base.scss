@@ -27,10 +27,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 2em 0 0.5em;
   line-height: 1.2;
-  font-family: $header-font-family;
-  font-weight: bold;
+  margin-top: 0;
 }
 
 h1 {
@@ -38,22 +36,10 @@ h1 {
   font-size: $h-size-1;
 }
 
-h2 {
-  font-size: $h-size-2;
-}
-
-h3 {
-  font-size: $h-size-3;
-}
-
-h4 {
-  font-size: $h-size-4;
-}
-
-h5 {
-  font-size: $h-size-5;
-}
-
+h2,
+h3,
+h4,
+h5,
 h6 {
   font-size: $h-size-6;
 }
@@ -99,7 +85,6 @@ fieldset {
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: none;
   cursor: help;
   border-bottom: 1px dotted $text-color;
 }
@@ -178,14 +163,14 @@ td > code {
   }
 }
 
-/* horizontal rule */
+// /* horizontal rule */
 
-hr {
-  display: block;
-  margin: 1em 0;
-  border: 0;
-  border-top: 1px solid $border-color;
-}
+// hr {
+//   display: block;
+//   margin: 1em 0;
+//   border: 0;
+//   border-top: 5px solid $border-color;
+// }
 
 /* lists */
 
@@ -354,3 +339,174 @@ input[type="submit"],
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
+
+// Distill
+
+.distill {
+  a:hover {
+    border-bottom-color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
+// Projects
+
+.projects {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      .card-title {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .card {
+    img {
+      width: 100%;
+    }
+    .card-title {
+      color: #000;
+    }
+  }
+
+  .card-item {
+    width: auto;
+    margin-bottom: 10px;
+
+    .row {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .grid-item {
+    // width: 250px;
+    margin-bottom: 15px;
+  }
+
+  h2.category {
+    color: var(--global-divider-color);
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-top: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: right;
+  }
+}
+
+
+// Publications
+
+.publications {
+  margin-top: 2rem;
+  h2 {
+    span {
+      font-size: 10px;
+    }
+  }
+  h2.year {
+    color: $text-color;
+    border-top: 2px solid $text-color;
+    text-align: right;
+  }
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+
+    li {
+      margin-bottom: 1rem;
+      .title {
+        font-size: 25px;
+        font-weight: bolder;
+      }
+      .author {
+        font-size: 15px;
+        a {
+          border-bottom: 1px dashed var(--global-theme-color);
+          &:hover {
+              border-bottom-style: solid;
+              text-decoration: none;
+          }
+        }
+        > em {
+          font-size: 15px;
+          border-bottom: 1px solid;
+          font-style: normal;
+        }
+      }
+      .links {
+        a.btn {
+          color: $text-color;
+          text-decoration: none;
+          background-color: transparent;
+          display: inline-block;
+          margin-top: 3mm;
+          margin-bottom: 0.25em;
+          padding: 3px;
+          font-family: $font-choice;
+          font-size: $type-size-6;
+          font-weight: bold;
+          text-align: center;
+          border-radius: $border-radius;
+          border-color: $text-color;
+          border-width: 2px;
+          border-style: solid;
+          cursor: pointer;
+          &:hover {
+            border-color: mix($info-color, $primary-color, 100%);
+            background-color: mix($info-color, $primary-color, 100%);
+          }
+        }
+      }
+      .hidden {
+        font-size: 0.875rem;
+        display: none;
+        max-height: 100em;
+        overflow: hidden;
+
+        p {
+          line-height: 1.4em;
+          margin: 10px;
+        }
+        pre {
+          font-size: 1em;
+          line-height: 3mm;
+          padding: 10px;
+        }
+      }
+      .hidden.open {
+        display: block;
+      }
+      div.abstract.hidden {
+        border: dashed 1px $text-color;
+      }
+      div.abstract.hidden.open {
+        border-color: $text-color; 
+        font-size: 18px;
+      }
+      div.bibtex_show.open {
+        font-size: 0.1rem;
+      }
+    }
+  }
+}
+
+.row {
+  h1 {
+    display: inline-block;
+    width: 4cm;
+    margin-bottom: 0;
+    margin-right: 3mm; 
+    vertical-align: top;
+  }
+  h2 {
+    display: inline-block;
+    width: 20cm;
+    margin-bottom: 0;
+  }
+}
+
+
