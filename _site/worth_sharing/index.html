@@ -1,0 +1,449 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>worth_sharing - olivierleblanc</title>
+<meta name="description" content="A blog discussing topics around programming, data science/engineering, and cloud technologies.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="olivierleblanc">
+<meta property="og:title" content="Worth Sharing">
+<meta property="og:url" content="http://localhost:4000/worth_sharing/">
+
+
+  <meta property="og:description" content="A blog discussing topics around programming, data science/engineering, and cloud technologies.">
+
+
+
+  <meta property="og:image" content="">
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/worth_sharing/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Olivier Leblanc",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- LATEX -->
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
+<script>
+  window.MathJax = {
+    jax: ["input/TeX", "output/CommonHTML"],
+    extensions: ["tex2jax.js", "asciimath2jax.js", "mml2jax.js", "MathMenu.js", "MathZoom.js"],
+    TeX: {
+      extensions: ["AMSmath.js", "AMSsymbols.js", "autoload-all.js"]
+    },
+    displayIndent: 0,
+    tex2jax: {
+      inlineMath: [
+        ['$', '$'],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true
+    },
+    showMathMenu: false,
+    showProcessingMessages: false,
+    messageStyle: "none",
+    menuSettings: { zoom: "Click" },
+    AuthorInit: function () {
+      MathJax.Hub.Register.StartupHook("End", function () {
+        var timeout = false, // holder for timeout id
+          delay = 250; // delay after event is "complete" to run callback
+        var shrinkMath = function () {
+          var dispFormulas = document.getElementsByClassName("formula");
+          if (dispFormulas) {
+            // caculate relative size of indentation
+            var contentTest = document.getElementsByTagName("body")[0];
+            var nodesWidth = contentTest.offsetWidth;
+            // if you have indentation
+            var mathIndent = MathJax.Hub.config.displayIndent; //assuming px's
+            // var mathIndentValue = mathIndent.substring(0, mathIndent.length - 2);
+            for (var i = 0; i < dispFormulas.length; i++) {
+              var dispFormula = dispFormulas[i];
+              var wrapper = dispFormula.getElementsByClassName("MathJax_Preview")[0].nextSibling;
+              var child = wrapper.firstChild;
+              wrapper.style.transformOrigin = "top-left"; //or top-left if you left-align your equations
+              var oldScale = child.style.transform;
+              var newValue = Math.min(0.80 * dispFormula.offsetWidth / child.offsetWidth, 1.0).toFixed(2);
+              var newScale = "scale(" + newValue + ")";
+              if (!(newScale === oldScale)) {
+                wrapper.style.transform = newScale;
+                // wrapper.style["margin-left"] = Math.pow(newValue, 4) * mathIndentValue + "px";
+                var wrapperStyle = window.getComputedStyle(wrapper);
+                var wrapperHeight = parseFloat(wrapperStyle.height);
+                wrapper.style.height = "" + (wrapperHeight * newValue) + "px";
+                if (newValue === "1.00") {
+                  wrapper.style.cursor = "";
+                  wrapper.style.height = "";
+                }
+                else {
+                  wrapper.style.cursor = "zoom-in";
+                }
+              }
+
+            }
+          }
+        };
+        shrinkMath();
+        window.addEventListener('resize', function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(shrinkMath, delay);
+        });
+      });
+    }
+  };
+
+  (function (d, script) {
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function () {
+      // remote script has loaded
+    };
+    script.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+    d.getElementsByTagName('head')[0].appendChild(script);
+  }(document));
+</script>
+
+<!--________________________________________ -->
+<!-- TOGGLE BETWEEN DARK MODE AND LIGHT MODE -->
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/theme1.css" id="theme_source">
+
+<link rel="stylesheet alternate" href="/assets/css/theme2.css" id="theme_source_2">
+<script>
+  let theme = sessionStorage.getItem('theme');
+  if (theme === "dark") {
+    sessionStorage.setItem('theme', 'dark');
+    node1 = document.getElementById('theme_source');
+    node2 = document.getElementById('theme_source_2');
+    node1.setAttribute('rel', 'stylesheet alternate');
+    node2.setAttribute('rel', 'stylesheet');
+  }
+  else {
+    sessionStorage.setItem('theme', 'light');
+  }
+</script>
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+</noscript>
+
+
+  </head>
+
+  <body class="layout--single">
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Olivier Leblanc
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/talks/">Talks</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/worth_sharing/">Worth Sharing</a>
+            </li></ul>
+         <!-- HERE CHOSE THE LOGO TO TOGGLE THEME -->
+        <button class="theme__toggle" type="button">
+          <i class="fas fa-fw fa-adjust" aria-hidden="true" 
+              onclick="node1=document.getElementById('theme_source');
+              node2=document.getElementById('theme_source_2');
+              if(node1.getAttribute('rel')=='stylesheet'){
+                node1.setAttribute('rel', 'stylesheet alternate'); 
+                node2.setAttribute('rel', 'stylesheet');
+                sessionStorage.setItem('theme', 'dark');
+              }
+              else{
+                node2.setAttribute('rel', 'stylesheet alternate'); 
+                node1.setAttribute('rel', 'stylesheet');
+                sessionStorage.setItem('theme', 'light');
+              } 
+              return false;">
+          </i>
+        </button>
+        
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  <!-- 
+ -->
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Worth Sharing">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/worth_sharing/" class="u-url" itemprop="url">Worth Sharing
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Content</h4></header>
+              <ul class="toc__menu"><li><a href="#youtube">YouTube</a><ul><li><a href="#sciences">Sciences</a></li><li><a href="#makers">Makers</a></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#socio-economics-ecology--ethics">Socio-economics, ecology &amp; ethics</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h2 id="youtube">YouTube</h2>
+
+<p>As a french speaking belgian person, I’m sharing with you content both in french and english.</p>
+
+<h3 id="sciences">Sciences</h3>
+
+<p>Channels <br /></p>
+
+<center> French </center>
+<p><a href="https://www.youtube.com/@ScienceEtonnante/videos" target="_blank"><img src="https://www.tipeeestream.com/cdn-cgi/image/onerror=redirect,width=400,height=400,fit=cover/https://api.tipeee.com/mmcMediaPlugin/media/image/24/245641051be024cfd1ce23afbd47d08c8eba9f82.png" width="80px" /></a>
+By far my favorite french vulgarisation channel. Mostly talking about physics and AI.
+<br />
+<a href="https://www.youtube.com/@monsieurbidouille" target="_blank"><img src="https://yt3.googleusercontent.com/bCA8DmyyxfImTZom7d3K6tlopuEvFbiBWdkncBvGRWW17OXvb5fQWkBSGG5X0O5UGuBO9Xki=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@dirtybiology" target="_blank"><img src="https://yt3.ggpht.com/trkEwcdvT98l-oGCC-v2Y69wUfDURCLGW0PeY1f5TBTF8QCfD0rZ9HsjBQIurKrNg9yLEUaG=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@Fouloscopie" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu87ecerrIM39qUKxbrGPHPKVpi_izE57hjMVuwdMQ=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@ScienceClic" target="_blank"><img src="https://yt3.googleusercontent.com/xeGMGAOlacH8PQly5i1bJhRGK8IYcMaQ4W8MyqSlcUVxWtAoITRsgewDH6DEaAlaotnHl0UY=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@PasseScience/" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu-11lddlPvuGhWuHkGK7ciWJtebxM6gVn5EaoQU3g=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br /></p>
+<center> English </center>
+<p><a href="https://www.youtube.com/@veritasium" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu-FU1d2Jd6AKRDpCwrxrraoKJ3Nrtk4iMpHBdAV4Q=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@3blue1brown" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/3B1B_Logo.png" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@Eigensteve" target="_blank"><img src="https://yt3.ggpht.com/ytc/AMLnZu88f8bay1TND53bUscQZUsY8qm6PP7diUFkW3ntJA=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@smartereveryday" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu8B3Q1hLo0DTXMlAaUDvo9Jau8wlwklGy43hOF27Q=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@standupmaths" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu-3jzx7LemCpLyGrI0kC06xEq9DNxQo9DFsOX0JZg=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a></p>
+
+<h3 id="makers">Makers</h3>
+<p><a href="https://www.youtube.com/@colinfurze" target="_blank"><img src="https://yt3.ggpht.com/ytc/AMLnZu-VCKwqjLUDfPxn45KSi-m7-XLNyNof_541geChdg=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@ivanmirandawastaken" target="_blank"><img src="https://yt3.ggpht.com/ytc/AMLnZu9VttYJ0LK_BNjP4HLtrd99ESiNIoCeq0N5DCiD=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@MakersMuse" target="_blank"><img src="https://yt3.ggpht.com/ytc/AMLnZu-qB86CaqiwAY7KaCI69dzgKxSmlzxb9oWAdthGlg=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<br />
+<a href="https://www.youtube.com/@StuffMadeHere" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu-3wGc4sZnvHaPb5NM60ayUSgT3LxlWhcdtezzW=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a></p>
+
+<h3 id="philosophy">Philosophy</h3>
+
+<p>Channels <br /></p>
+
+<p><a href="https://www.youtube.com/@MonsieurPhi" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu80aClNpgBwZ5TtzY1FsBUtq5i9dXeehSTsj-paVg=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<a href="https://www.youtube.com/@Philoxime" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu9Qu8EprX6UwlefwgywYKnjh71o__HKZqU2yjC5=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a></p>
+
+<h3 id="socio-economics-ecology--ethics">Socio-economics, ecology &amp; ethics</h3>
+
+<p>Channels <br /></p>
+
+<p><a href="https://www.youtube.com/@LEROIDESRATS" target="_blank"><img src="https://yt3.ggpht.com/ytc/AMLnZu99a7pcSQrM1H9dMjqlHtZq_aYRfr6h55EXGI42ZA=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a>
+<a href="https://www.youtube.com/@StupidEco" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/26/Stupid_Economics_Logo.jpg/1200px-Stupid_Economics_Logo.jpg" width="80px" /></a>
+<a href="https://www.youtube.com/@LeReveilleur" target="_blank"><img src="https://yt3.googleusercontent.com/ytc/AMLnZu8vB76AL7ZOXXfoxcgieuaKuYmRR9gi2ReZTWYz=s900-c-k-c0x00ffffff-no-rj" width="80px" /></a></p>
+
+<!-- ## Blogs
+
+Tech bloggers that I find fascinating and inspiring
+
+- [Martin Kleppmann](https://martin.kleppmann.com/){:target="_blank"}
+- [Julia Evans](https://jvns.ca/){:target="_blank"}
+- [BeepBoop - Friendly Robot](https://beepb00p.xyz/){:target="_blank"}
+- [Milan Curcic](https://milancurcic.com/){:target="_blank"}
+- [Shen Hong](https://shen.hong.io/){:target="_blank"}
+- [Yagmur C. Tas](https://yagmurcetintas.com/){:target="_blank"}
+- [Thomas Stringer](https://trstringer.com/){:target="_blank"}
+- [Daniel Estévez](https://destevez.net/){:target="_blank"}
+- [Dev.Poga](https://devpoga.org/){:target="_blank"}
+- [Michael Stapelberg](https://michael.stapelberg.ch/){:target="_blank"}
+- [Stefan-Marr.de](https://stefan-marr.de/){:target="_blank"}
+- [Francis Bach](https://francisbach.com/){:target="_blank"} -->
+
+<!-- ## Books
+
+Tech-related books I've enjoyed
+
+- [Learning Spark: Lightning-Fast Data Analytics](https://www.amazon.com/Learning-Spark-Jules-Damji/dp/1492050040){:target="_blank"}
+- [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321){:target="_blank"}
+- [Modern Fortran - Building efficient parallel applications](https://www.manning.com/books/modern-fortran){:target="_blank"}
+- [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646){:target="_blank"}
+- [How Linux Works, 3rd Edition: What Every Superuser Should Know](https://www.amazon.com/How-Linux-Works-Brian-Ward/dp/1718500408){:target="_blank"}
+- [Docker Deep Dive](https://www.oreilly.com/library/view/docker-deep-dive/9781800565135/){:target="_blank"}
+- [Algorithms and Data Structures for Massive Datasets](https://www.manning.com/books/algorithms-and-data-structures-for-massive-datasets){:target="_blank"}
+- [The Big Book of Data Engineering](https://databricks.com/p/ebook/the-big-book-of-data-engineering){:target="_blank"}
+- [Fundamentals of Data Engineering: Plan and Build Robust Data Systems](https://www.amazon.com/Fundamentals-Data-Engineering-Robust-Systems/dp/1098108302){:target="_blank"}
+- [Data Analysis with Python and PySpark](https://www.amazon.com/Analysis-Python-PySpark-Jonathan-Rioux/dp/1617297208){:target="_blank"}
+- [Advanced Analytics with PySpark](https://www.oreilly.com/library/view/advanced-analytics-with/9781098103644/){:target="_blank"}
+- [Designing Machine Learning Systems: An Iterative Process for Production-Ready Applications](https://www.amazon.com/Designing-Machine-Learning-Systems-Production-Ready/dp/1098107969){:target="_blank"}
+- [Parallel and High Performance Computing](https://www.amazon.com/Parallel-Performance-Computing-Robert-Robey/dp/1617296465){:target="_blank"}
+- [Machine Learning Design Patterns: Solutions to Common Challenges in Data Preparation, Model Building, and MLOps](https://www.oreilly.com/library/view/machine-learning-design/9781098115777/){:target="_blank"}
+- [Introducing MLOps](https://www.oreilly.com/library/view/introducing-mlops/9781492083283/){:target="_blank"} -->
+
+<!-- ## Podcasts
+
+- [Data Brew](https://databricks.com/discover/data-brew){:target="_blank"}
+  - S03E02 - [Data Culture Outside ‘The Valley’](https://databricks.com/discover/data-brew/s3-e2-data-culture-outside-the-valley){:target="_blank"}
+- [DataAware](https://www.ascend.io/dataaware-podcast/){:target="_blank"}
+- [Linux Action News](https://www.youtube.com/watch?v=6caj3BaaYdY&list=PLUW3LUwQvegxyaQeHQuMrDq94CT2ZZm9F) -->
+
+<!-- ## Data Architecture
+
+- [How Discord Stores Billions of Messages](https://discord.com/blog/how-discord-stores-billions-of-messages){:target="_blank"}
+- [How Netflix Keeps Its Data Infrastructure Cost-Effective](https://acceldataio.medium.com/data-engineering-best-practices-how-netflix-keeps-its-data-infrastructure-cost-effective-dee310bcc910){:target="_blank"} -->
+
+<!-- ## Scientific Computing
+
+- [The History Of Numerical Analysis and Scientific Computing - Interviews](http://history.siam.org/){:target="_blank"} -->
+
+<!-- ## Misc -->
+
+<!-- Random cool stuff
+- [Mechanical Watch](https://ciechanow.ski/mechanical-watch/){:target="_blank"}
+ -->
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  </body>
+</html>
