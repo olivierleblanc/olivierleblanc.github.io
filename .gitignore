@@ -26,7 +26,6 @@ codekit-config.json
 .jekyll-metadata
 .sass-cache
 _asset_bundler_cache
-_site
 
 # Minimal mistakes
 docs

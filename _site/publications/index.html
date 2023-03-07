@@ -1,0 +1,537 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>olivierleblanc</title>
+<meta name="description" content="A blog discussing topics around programming, data science/engineering, and cloud technologies.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="olivierleblanc">
+<meta property="og:title" content="Publications">
+<meta property="og:url" content="http://localhost:4000/publications/">
+
+
+  <meta property="og:description" content="A blog discussing topics around programming, data science/engineering, and cloud technologies.">
+
+
+
+  <meta property="og:image" content="">
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/publications/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Olivier Leblanc",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- LATEX -->
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
+<script>
+  window.MathJax = {
+    jax: ["input/TeX", "output/CommonHTML"],
+    extensions: ["tex2jax.js", "asciimath2jax.js", "mml2jax.js", "MathMenu.js", "MathZoom.js"],
+    TeX: {
+      extensions: ["AMSmath.js", "AMSsymbols.js", "autoload-all.js"]
+    },
+    displayIndent: 0,
+    tex2jax: {
+      inlineMath: [
+        ['$', '$'],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true
+    },
+    showMathMenu: false,
+    showProcessingMessages: false,
+    messageStyle: "none",
+    menuSettings: { zoom: "Click" },
+    AuthorInit: function () {
+      MathJax.Hub.Register.StartupHook("End", function () {
+        var timeout = false, // holder for timeout id
+          delay = 250; // delay after event is "complete" to run callback
+        var shrinkMath = function () {
+          var dispFormulas = document.getElementsByClassName("formula");
+          if (dispFormulas) {
+            // caculate relative size of indentation
+            var contentTest = document.getElementsByTagName("body")[0];
+            var nodesWidth = contentTest.offsetWidth;
+            // if you have indentation
+            var mathIndent = MathJax.Hub.config.displayIndent; //assuming px's
+            // var mathIndentValue = mathIndent.substring(0, mathIndent.length - 2);
+            for (var i = 0; i < dispFormulas.length; i++) {
+              var dispFormula = dispFormulas[i];
+              var wrapper = dispFormula.getElementsByClassName("MathJax_Preview")[0].nextSibling;
+              var child = wrapper.firstChild;
+              wrapper.style.transformOrigin = "top-left"; //or top-left if you left-align your equations
+              var oldScale = child.style.transform;
+              var newValue = Math.min(0.80 * dispFormula.offsetWidth / child.offsetWidth, 1.0).toFixed(2);
+              var newScale = "scale(" + newValue + ")";
+              if (!(newScale === oldScale)) {
+                wrapper.style.transform = newScale;
+                // wrapper.style["margin-left"] = Math.pow(newValue, 4) * mathIndentValue + "px";
+                var wrapperStyle = window.getComputedStyle(wrapper);
+                var wrapperHeight = parseFloat(wrapperStyle.height);
+                wrapper.style.height = "" + (wrapperHeight * newValue) + "px";
+                if (newValue === "1.00") {
+                  wrapper.style.cursor = "";
+                  wrapper.style.height = "";
+                }
+                else {
+                  wrapper.style.cursor = "zoom-in";
+                }
+              }
+
+            }
+          }
+        };
+        shrinkMath();
+        window.addEventListener('resize', function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(shrinkMath, delay);
+        });
+      });
+    }
+  };
+
+  (function (d, script) {
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function () {
+      // remote script has loaded
+    };
+    script.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+    d.getElementsByTagName('head')[0].appendChild(script);
+  }(document));
+</script>
+
+<!--________________________________________ -->
+<!-- TOGGLE BETWEEN DARK MODE AND LIGHT MODE -->
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/theme1.css" id="theme_source">
+
+<link rel="stylesheet alternate" href="/assets/css/theme2.css" id="theme_source_2">
+<script>
+  let theme = sessionStorage.getItem('theme');
+  if (theme === "dark") {
+    sessionStorage.setItem('theme', 'dark');
+    node1 = document.getElementById('theme_source');
+    node2 = document.getElementById('theme_source_2');
+    node1.setAttribute('rel', 'stylesheet alternate');
+    node2.setAttribute('rel', 'stylesheet');
+  }
+  else {
+    sessionStorage.setItem('theme', 'light');
+  }
+</script>
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+</noscript>
+
+
+  </head>
+
+  <body class="layout--single">
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Olivier Leblanc
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/talks/">Talks</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/worth_sharing/">Worth Sharing</a>
+            </li></ul>
+         <!-- HERE CHOSE THE LOGO TO TOGGLE THEME -->
+        <button class="theme__toggle" type="button">
+          <i class="fas fa-fw fa-adjust" aria-hidden="true" 
+              onclick="node1=document.getElementById('theme_source');
+              node2=document.getElementById('theme_source_2');
+              if(node1.getAttribute('rel')=='stylesheet'){
+                node1.setAttribute('rel', 'stylesheet alternate'); 
+                node2.setAttribute('rel', 'stylesheet');
+                sessionStorage.setItem('theme', 'dark');
+              }
+              else{
+                node2.setAttribute('rel', 'stylesheet alternate'); 
+                node1.setAttribute('rel', 'stylesheet');
+                sessionStorage.setItem('theme', 'light');
+              } 
+              return false;">
+          </i>
+        </button>
+        
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  <!-- 
+ -->
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Publications">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/publications/" class="u-url" itemprop="url">Publications
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <!-- _pages/publications.md -->
+<div class="publications">
+    <h2 class="year">2023</h2>
+    <ol class="bibliography"><li><!-- _layouts/bib.html -->
+<script>
+function showAbstract(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
+};
+function showBib(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
+  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
+};
+</script>
+
+<div class="row">
+  <h1></h1>
+  <h2>
+    <!-- Entry bib key -->
+    <div id="basp23" class="col-sm-8">
+    
+      <!-- Title -->  
+      <div class="title">An Interferometric view of Speckle Imaging</div>
+      <!-- Author -->
+      <div class="author">Olivier Leblanc,&nbsp;Matthias Hofer,&nbsp;Siddharth Sivankutty,&nbsp;Hervé Rigneault,&nbsp;and Laurent Jacques
+      </div>
+
+      <!-- Journal/Book title and date -->
+      <div class="periodical">
+        <em>Biomedical and Astronomical Signal Processing Conference - BASP23.</em> Feb 2023
+      </div>
+    
+      <!-- Links/Buttons -->
+      <div class="links">
+        <a href="/assets/pdf/BASP23.pdf" class="btn btn-sm z-depth-0" role="button">Poster</a>
+      </div>
+
+      
+    </div>
+  </h2>
+</div></li></ol>
+  
+    <h2 class="year">2022</h2>
+    <ol class="bibliography"><li><!-- _layouts/bib.html -->
+<script>
+function showAbstract(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
+};
+function showBib(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
+  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
+};
+</script>
+
+<div class="row">
+  <h1></h1>
+  <h2>
+    <!-- Entry bib key -->
+    <div id="lrma22" class="col-sm-8">
+    
+      <!-- Title -->  
+      <div class="title">An Interferometric view of Speckle Imaging</div>
+      <!-- Author -->
+      <div class="author">Olivier Leblanc,&nbsp;Matthias Hofer,&nbsp;Siddharth Sivankutty,&nbsp;Hervé Rigneault,&nbsp;and Laurent Jacques
+      </div>
+
+      <!-- Journal/Book title and date -->
+      <div class="periodical">
+        <em>Workshop on Low-Rank Models and Applications - LRMA22.</em> Sep 2022
+      </div>
+    
+      <!-- Links/Buttons -->
+      <div class="links">
+        <a href="/assets/pdf/LRMA22.pdf" class="btn btn-sm z-depth-0" role="button">Poster</a>
+      </div>
+
+      
+    </div>
+  </h2>
+</div></li></ol>
+  
+    <h2 class="year">2021</h2>
+    <ol class="bibliography"><li><!-- _layouts/bib.html -->
+<script>
+function showAbstract(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
+};
+function showBib(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
+  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
+};
+</script>
+
+<div class="row">
+  <h1><img class="card-img-top" src="http://localhost:4000/assets/images/paper_master_thesis.png" width="200px" /></h1>
+  <h2>
+    <!-- Entry bib key -->
+    <div id="paper_master" class="col-sm-8">
+    
+      <!-- Title -->  
+      <div class="title">An Affordable Pedagogical Setup for Wave-particule Duality and Applications to Chaotic Stadium Cavity</div>
+      <!-- Author -->
+      <div class="author">Olivier Leblanc,&nbsp;Loïc Tadrist,&nbsp;Nicolas Moreau,&nbsp;Boris Brun,&nbsp;Tristan Gilet,&nbsp;and Benoît Hackens
+      </div>
+
+      <!-- Journal/Book title and date -->
+      <div class="periodical">
+        <em>In 2021 15th International Conference on Advanced Technologies, Systems and Services in Telecommunications (TELSIKS)</em> Sep 2021
+      </div>
+    
+      <!-- Links/Buttons -->
+      <div class="links">
+        <a class="abstract btn btn-sm z-depth-0" role="button" onclick="showAbstract(this)">    
+          Abs</a>
+        <a class="bibtex btn btn-sm z-depth-0" role="button" onclick="showBib(this)">Bib</a>
+        <a href="https://ieeexplore.ieee.org/document/9606385" class="btn btn-sm z-depth-0" role="button">PDF</a>
+      </div>
+
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Walking droplets represent an ideal playground to explore
+              wave-particle duality at the macroscopic scale. The proper control and
+              measurement of such system requires several experimental tools that
+              are not often easily affordable at undergraduate level. This paper
+              proposes a complete low-cost and open-source experimental setup for
+              walking droplets with a performance characterization. The setup is
+              tested by examining the behaviour of droplets in the stadium billiard, a
+              two-dimensional concave cavity that yields chaotic trajectories. Drastic
+              differences between classical and quantum particles behaviour were
+              observed in such geometry. In particular, the long-term evolution of
+              walking droplets in a stadium billiard presents clear scarring patterns,
+              informing on the existence of preferred "probable positions" within the
+              billiard.
+  </p>
+      </div><!-- Hidden bibtex block -->
+      <div class="bibtex hidden">
+        <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">paper_master</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Leblanc, Olivier and Tadrist, Loïc and Moreau, Nicolas and Brun, Boris and Gilet, Tristan and Hackens, Benoît}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{2021 15th International Conference on Advanced Technologies, Systems and Services in Telecommunications (TELSIKS)}</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{An Affordable Pedagogical Setup for Wave-particule Duality and Applications to Chaotic Stadium Cavity}</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2021}</span><span class="p">,</span>
+  <span class="na">volume</span> <span class="p">=</span> <span class="s">{}</span><span class="p">,</span>
+  <span class="na">number</span> <span class="p">=</span> <span class="s">{}</span><span class="p">,</span>
+  <span class="na">abbr</span> <span class="p">=</span> <span class="s">{paper_master_thesis.png}</span><span class="p">,</span>
+  <span class="na">pdf</span> <span class="p">=</span> <span class="s">{https://ieeexplore.ieee.org/document/9606385}</span><span class="p">,</span>
+  <span class="na">bibtex_show</span> <span class="p">=</span> <span class="s">{true}</span><span class="p">,</span>
+  <span class="na">pages</span> <span class="p">=</span> <span class="s">{398-403}</span><span class="p">,</span>
+  <span class="na">doi</span> <span class="p">=</span> <span class="s">{10.1109/TELSIKS52058.2021.9606385}</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+  </h2>
+</div></li></ol>
+  
+    <h2 class="year">2020</h2>
+    <ol class="bibliography"><li><!-- _layouts/bib.html -->
+<script>
+function showAbstract(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
+};
+function showBib(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
+  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
+};
+</script>
+
+<div class="row">
+  <h1><img class="card-img-top" src="http://localhost:4000/assets/images/master_thesis.png" width="200px" /></h1>
+  <h2>
+    <!-- Entry bib key -->
+    <div id="master_thesis" class="col-sm-8">
+    
+      <!-- Title -->  
+      <div class="title">Comparison between the walking droplet and the electron behaviour inside a chaotic stadium cavity</div>
+      <!-- Author -->
+      <div class="author">Olivier Leblanc
+      </div>
+
+      <!-- Journal/Book title and date -->
+      <div class="periodical">
+        <em></em> Jun 2020
+      </div>
+    
+      <!-- Links/Buttons -->
+      <div class="links">
+        <a class="abstract btn btn-sm z-depth-0" role="button" onclick="showAbstract(this)">    
+          Abs</a>
+        <a class="bibtex btn btn-sm z-depth-0" role="button" onclick="showBib(this)">Bib</a>
+        <a href="https://dial.uclouvain.be/downloader/downloader.php?pid=thesis%3A25162&amp;datastream=PDF_02&amp;cover=cover-mem" class="btn btn-sm z-depth-0" role="button">PDF</a>
+        <a href="https://github.com/olivierleblanc/Walking-droplet-in-stadium-cavity" class="btn btn-sm z-depth-0" role="button">Code</a>
+      </div>
+
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>The walking droplet experiment has received particular      attention in the last fifteen years because it represents the first known example of a macroscopic pilot-wave system that exhibits behaviours thought to be exclusive to the microscopic quantum realm. Most efforts about walking droplets have focused on the experimental analysis in a <q>fluid mechanics</q> framework and on its mathematical modeling. On the other hand, the stadium billiard, one of the first 2D concave chaotic geometries introduced by Bunimovich, has been actively studied for these last decades because of the drastic differences observed between classical and quantum particles behaviour in such geometry. Consequently, the objective of this master thesis is to analyze the behaviour of walking droplets inside the Bunimovich stadium billiard and compare it with the behaviours of classical and quantum particles in similar conditions. To fulfil this objective, a complete low-cost experimental setup has been developed for the observations of walking droplets, comprising : a fabricated bath stuck on the membrane of a loudspeaker for the vertical shaking, a 3-axis accelerometer providing real-time measurements on PC, a droplet generator based on a piezoelectric buzzer and a fixed camera recording top view images of the droplet motion which are post-processed with Matlab. The imperfect horizontality of the developed setup is shown to lead to an effective Faraday instability threshold lower than the scientific consensus for the same forcing parameters \( \Gamma_F,e = 2.3[\text g] &lt; \Gamma_F = 4.144[\text g] \). As it prevents us to correctly estimate the memory parameter Me, the conducted experiments are instead described in terms of shaking amplitude Γ and estimated tilt angles of the bath θ and β. It is observed that the walking droplet long-term evolution in a stadium billiard presents a clear scarring pattern, informing on the existence of preferred <q>probable positions</q> of the droplet inside the billiard. The scarring pattern, while very similar to a typical shape found in quantum simulations, is surprisingly much more robust against forcing variations than the scars observed for electrons.</p>
+      </div><!-- Hidden bibtex block -->
+      <div class="bibtex hidden">
+        <figure class="highlight"><pre><code class="language-bibtex" data-lang="bibtex"><span class="nc">@article</span><span class="p">{</span><span class="nl">master_thesis</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Leblanc, Olivier}</span><span class="p">,</span>
+  <span class="na">title</span> <span class="p">=</span> <span class="s">{Comparison between the walking droplet and the electron behaviour inside a chaotic stadium cavity}</span><span class="p">,</span>
+  <span class="na">month</span> <span class="p">=</span> <span class="nv">jun</span><span class="p">,</span>
+  <span class="na">year</span> <span class="p">=</span> <span class="s">{2020}</span><span class="p">,</span>
+  <span class="na">abbr</span> <span class="p">=</span> <span class="s">{master_thesis.png}</span><span class="p">,</span>
+  <span class="na">code</span> <span class="p">=</span> <span class="s">{https://github.com/olivierleblanc/Walking-droplet-in-stadium-cavity}</span><span class="p">,</span>
+  <span class="na">pdf</span> <span class="p">=</span> <span class="s">{https://dial.uclouvain.be/downloader/downloader.php?pid=thesis%3A25162&amp;datastream=PDF_02&amp;cover=cover-mem}</span><span class="p">,</span>
+  <span class="na">bibtex_show</span> <span class="p">=</span> <span class="s">{true}</span>
+<span class="p">}</span></code></pre></figure>
+      </div>
+    </div>
+  </h2>
+</div></li></ol>
+  
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,772 @@
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/header.jpg" alt="gitlab-pipelines-header" />
+        
+        
+            <figcaption>Image Source: <a href="https://unsplash.com" target="_blank">Unsplash</a></figcaption>
+        
+    </figure>
+</div>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>As projects become larger and more complex, we face numerous challenges in 
+dealing with the CI/CD setup. Configuration files become large, readability 
+drops, and effort that it takes to add additional steps in pipelines 
+increases.</p>
+
+<p>When it comes to dealing with complicated CI/CD setups, one concept definitely 
+stands out: <em>parent-child pipeline</em>. It offers a way to branch out different 
+sections of the setup and create multiple pipelines that can be independent and 
+separately managed.</p>
+
+<p>Parent-child pipelines allow us to create efficient pipelines, split 
+configuration files into smaller parts that are easier to understand, and 
+dynamically generate pipelines based on our project.</p>
+
+<p>The first section of this article describes how to set up GitLab locally. 
+Doing so gives you a playground where you can experiment without wasting 
+compute time in the cloud. If you’d like to jump straight to a dynamic 
+setup, go to the <a href="#dynamic">Dynamic Parent-Child Pipelines</a> section.</p>
+
+<h2 id="local-setup">Local Setup</h2>
+
+<p>There are <a href="https://about.gitlab.com/install/">multiple ways</a> to set up 
+GitLab locally, but as always, when it comes 
+to local testing it’s easier to use Docker images. We will need two of them:</p>
+<ul>
+  <li>GitLab Community Edition docker image: <a href="https://hub.docker.com/r/gitlab/gitlab-ce">gitlab/gitlab-ce</a></li>
+  <li>GitLab CI Multi Runner docker image: <a href="https://hub.docker.com/r/gitlab/gitlab-runner">gitlab/gitlab-runner</a></li>
+</ul>
+
+<p>The first one will give us the standard GitLab web application that we will run 
+in the localhost, the second is a runner that we need to register in order to 
+run our local pipelines.</p>
+
+<h3 id="gitlab-community-edition">GitLab Community Edition</h3>
+
+<p>First, let’s start the GitLab application:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="se">\</span>
+    <span class="nt">-p</span> 4000:80 <span class="se">\</span>
+    <span class="nt">--name</span> gitlab <span class="se">\</span>
+    gitlab/gitlab-ce
+</code></pre></div></div>
+
+<p>This will take a few minutes, you’ll see a lot of output that logs all the 
+services that are required for the application. Once it’s done, you can go to 
+<code class="language-plaintext highlighter-rouge">localhost:4000</code> and you’ll see:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-sign-in.png" alt="gitlab-sign-in" />
+        
+        
+            <figcaption>Local GitLab application</figcaption>
+        
+    </figure>
+</div>
+
+<p>To login, we have to get GitLab’s initial root password located in 
+<code class="language-plaintext highlighter-rouge">/etc/gitlab/initial_root_password</code>. The following command will do that:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> gitlab <span class="nb">grep</span> <span class="s1">'Password:'</span> /etc/gitlab/initial_root_password
+</code></pre></div></div>
+
+<p>Now log in using username <code class="language-plaintext highlighter-rouge">root</code> and the password. Next, create a new blank 
+project - no need to change anything, just provide a name (<code class="language-plaintext highlighter-rouge">test</code> in this 
+example) and you’ll see:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-new-project.png" alt="gitlab-new-project" />
+        
+        
+            <figcaption>Local GitLab Project</figcaption>
+        
+    </figure>
+</div>
+
+<p>To quickly test a pipeline, create the <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code> configuration file 
+with the following content:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">build-job</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">build</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "Hello, $GITLAB_USER_LOGIN!"</span>
+</code></pre></div></div>
+
+<p>This will start the job but it will get stuck:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-stuck.png" alt="gitlab-stuck" />
+        
+        
+            <figcaption>Local GitLab Stuck Pipeline</figcaption>
+        
+    </figure>
+</div>
+
+<p>To resolve this, we need to start a GitLab runner and register it using the 
+registration URL and token. This information can be found in the 
+<strong>Settings &gt; CI/CD</strong> section:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-register.png" alt="gitlab-register" />
+        
+        
+            <figcaption>Local GitLab Register Runners</figcaption>
+        
+    </figure>
+</div>
+
+<h3 id="gitlab-local-runner">GitLab Local Runner</h3>
+
+<p>Registration process requires communication between containers i.e the 
+GitLab application and a runner. When the docker starts, it will create a 
+default network called <code class="language-plaintext highlighter-rouge">bridge</code>. From that point onward, when we start a 
+container it will be automatically added to the bridge network, unless 
+otherwise specified. 
+In this network, each container has a unique IP address and one container 
+can talk to the other over it. We can check that the bridge network is 
+running using <code class="language-plaintext highlighter-rouge">docker network ls</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network <span class="nb">ls
+</span>NETWORK ID     NAME      DRIVER    SCOPE
+4eac0fb260aa   bridge    bridge    <span class="nb">local
+</span>ae5007f2c299   host      host      <span class="nb">local
+</span>283668e039d1   none      null      <span class="nb">local</span>
+</code></pre></div></div>
+
+<p>To get the IP address of the <code class="language-plaintext highlighter-rouge">gitlab</code> container in this network we use the 
+following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker inspect gitlab | <span class="nb">grep </span>IPAddress
+<span class="s2">"IPAddress"</span>: <span class="s2">"172.17.0.2"</span>
+</code></pre></div></div>
+
+<p>The other important thing is how we direct a runner to connect to the 
+application. We access the application on <code class="language-plaintext highlighter-rouge">localhost:4000</code>, but for the runner 
+it’s different since it goes through the <code class="language-plaintext highlighter-rouge">bridge</code> network, so we will use the 
+bridge network IP address and port <code class="language-plaintext highlighter-rouge">80</code>.</p>
+
+<p>The following will run the GitLab runner image:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">--name</span> gitlab-runner <span class="nt">--restart</span> always <span class="se">\</span>
+    <span class="nt">-v</span> /srv/gitlab-runner/config:/etc/gitlab-runner <span class="se">\</span>
+    <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="se">\</span>
+    gitlab/gitlab-runner:latest
+</code></pre></div></div>
+
+<p>The first configuration for the volume is important since we want to make sure 
+that the configuration is not lost when the container is restarted and we can 
+configure it while it’s running.</p>
+
+<p>The registration is done by running a short-lived <code class="language-plaintext highlighter-rouge">gitlab-runner</code> container 
+that will generate a configuration file, after the registration process, and 
+store it in the volume that will be loaded by the runner.</p>
+
+<blockquote>
+  <p>For more information about the registration process, please see: 
+<a href="https://docs.gitlab.com/runner/register/">Registering runners</a></p>
+</blockquote>
+
+<p>To start the registration container, use the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="se">\</span>
+    <span class="nt">-v</span> /srv/gitlab-runner/config:/etc/gitlab-runner <span class="se">\</span>
+    gitlab/gitlab-runner register
+</code></pre></div></div>
+
+<p>It will ask you to:</p>
+<ul>
+  <li>Enter the GitLab instance URL, which is <code class="language-plaintext highlighter-rouge">http://&lt;bridge-gitlab-ip&gt;:80/</code> 
+e.g. <code class="language-plaintext highlighter-rouge">http://172.17.0.2:80/</code></li>
+  <li>Provide registration token - go to <strong>Settings &gt; CI/CD</strong></li>
+  <li>Enter the executor - we will use <code class="language-plaintext highlighter-rouge">docker</code> with default image <code class="language-plaintext highlighter-rouge">python:3.8</code></li>
+</ul>
+
+<p>If everything goes well, you should see:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Runner registered successfully. Feel free to start it, but if it's running 
+already the config should be automatically reloaded!
+</code></pre></div></div>
+
+<p>Since we already have a running runner, the GitLab application should pick it 
+up automatically, which can be seen in the UI:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-runner.png" alt="gitlab-runner" />
+        
+        
+            <figcaption>Local GitLab Runner</figcaption>
+        
+    </figure>
+</div>
+
+<p>However, our pipeline fails:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-fails.png" alt="gitlab-fails" />
+        
+        
+            <figcaption>Local GitLab Runner Fails</figcaption>
+        
+    </figure>
+</div>
+
+<p>As we can see, the error message is pretty clear, the runner failed to create 
+an API call because it cannot resolve a hostname. To fix this we could 
+define a hostname for our docker container, or simply configure the runner so 
+it knows how to resolve the value - which is nothing more than the ID of the 
+container which runs the GitLab application.</p>
+
+<p>From above we know that the configuration is stored in 
+<code class="language-plaintext highlighter-rouge">/etc/gitlab-runner/</code> in the <code class="language-plaintext highlighter-rouge">gitlab-runner</code> container. Edit the <code class="language-plaintext highlighter-rouge">config.toml</code> 
+file by adding the <code class="language-plaintext highlighter-rouge">extra_hosts</code>:</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[[runners]]</span>
+  <span class="py">name</span> <span class="p">=</span> <span class="s">"030d733198b1"</span>
+  <span class="py">url</span> <span class="p">=</span> <span class="s">"http://172.17.0.2:80/"</span>
+  <span class="py">token</span> <span class="p">=</span> <span class="s">"nK4RbyehkhayxpfNPj19"</span>
+  <span class="py">executor</span> <span class="p">=</span> <span class="s">"docker"</span>
+  <span class="nn">[runners.custom_build_dir]</span>
+  <span class="nn">[runners.cache]</span>
+    <span class="nn">[runners.cache.s3]</span>
+    <span class="nn">[runners.cache.gcs]</span>
+    <span class="nn">[runners.cache.azure]</span>
+  <span class="nn">[runners.docker]</span>
+    <span class="py">tls_verify</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="py">image</span> <span class="p">=</span> <span class="s">"python:3.8"</span>
+    <span class="py">privileged</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="py">disable_entrypoint_overwrite</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="py">oom_kill_disable</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="py">disable_cache</span> <span class="p">=</span> <span class="kc">false</span>
+    <span class="py">volumes</span> <span class="p">=</span> <span class="nn">["/cache"]</span>
+    <span class="py">shm_size</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="py">extra_hosts</span> <span class="p">=</span> <span class="nn">["296c77d3b766:172.17.0.2"]</span>  <span class="err">&lt;----</span> <span class="err">add</span> <span class="err">this</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Note: values <code class="language-plaintext highlighter-rouge">296c77d3b766</code> and <code class="language-plaintext highlighter-rouge">172.17.0.2</code> are different in your case</p>
+</blockquote>
+
+<p>If you retry the failed <code class="language-plaintext highlighter-rouge">build-job</code>, it should succeed:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-success.png" alt="gitlab-success" />
+        
+        
+            <figcaption>Local GitLab Runner Success</figcaption>
+        
+    </figure>
+</div>
+
+<p>Now that our runner works, we can proceed with building parent-child pipelines.</p>
+
+<h2 id="parent-child-pipelines">Parent-Child Pipelines</h2>
+
+<p>In general, a single global pipeline can lead to all kinds of inefficiencies 
+that can introduce arbitrary wait times and clutter the CI/CD setup. Not to 
+mention that as the complexity of our CI/CD pipelines grows we encounter 
+issues with large <code class="language-plaintext highlighter-rouge">.yml</code> configuration files and <code class="language-plaintext highlighter-rouge">includes</code> that increase the 
+complexity and trackability of the setup. To tackle these challenges we can 
+configure parent-child pipelines which allow us to:</p>
+<ul>
+  <li>Initiate different pipeline stages that can work independently</li>
+  <li>Split configuration and make the whole setup more manageable</li>
+  <li>Define multiple pipelines that have different behaviors</li>
+</ul>
+
+<h3 id="static">Static</h3>
+
+<p>The simplest way of creating a parent-child pipeline is to use 
+<a href="https://docs.gitlab.com/ee/ci/yaml/index.html#trigger"><code class="language-plaintext highlighter-rouge">trigger</code></a> which allows 
+us to start a downstream pipeline that can be either a multi-project pipeline 
+or a child pipeline. In order to trigger a child pipeline we have to specify 
+the configuration of the child pipeline using 
+<a href="https://docs.gitlab.com/ee/ci/yaml/index.html#include"><code class="language-plaintext highlighter-rouge">include</code></a>.</p>
+
+<h4 id="auto">Auto</h4>
+
+<p>To do this we will define <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code> and <code class="language-plaintext highlighter-rouge">service_a.yml</code> to be:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .gitlab-ci.yml</span>
+<span class="na">stages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">build</span>
+  <span class="pi">-</span> <span class="s">services</span>
+
+<span class="na">build-job</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">build</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "Hello, $GITLAB_USER_LOGIN!"</span>
+
+<span class="na">service_a</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">services</span>
+  <span class="na">needs</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">build-job</span>
+  <span class="na">trigger</span><span class="pi">:</span>
+    <span class="na">include</span><span class="pi">:</span> <span class="s">service_a.yml</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># service_a.yml</span>
+<span class="na">child-job</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "This is service "A" - child job!"</span>
+</code></pre></div></div>
+
+<p>We have two stages <code class="language-plaintext highlighter-rouge">build</code> and <code class="language-plaintext highlighter-rouge">services</code>, the job <code class="language-plaintext highlighter-rouge">service_a</code> requires the 
+<code class="language-plaintext highlighter-rouge">build-job</code> and then triggers a child pipeline which configuration contains 
+the <code class="language-plaintext highlighter-rouge">child-job</code>.</p>
+
+<p>In the UI that looks like:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-trigger-include.png" alt="gitlab-trigger-include" />
+        
+        
+            <figcaption>Parent Child Trigger Include</figcaption>
+        
+    </figure>
+</div>
+
+<h4 id="manual">Manual</h4>
+
+<p>Let’s say that we want to include <code class="language-plaintext highlighter-rouge">service_b</code> child pipeline but this time we 
+want to manually trigger the child pipeline. To do this we will need a new 
+configuration file <code class="language-plaintext highlighter-rouge">service_b.yml</code> and a new job <code class="language-plaintext highlighter-rouge">service_b</code> that uses 
+<a href="https://docs.gitlab.com/ee/ci/yaml/index.html#when"><code class="language-plaintext highlighter-rouge">when</code></a> keyword:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .gitlab-ci.yml</span>
+
+<span class="c1"># ... same as above</span>
+<span class="na">service_b</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">services</span>
+  <span class="na">needs</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">build-job</span>
+  <span class="na">trigger</span><span class="pi">:</span>
+    <span class="na">include</span><span class="pi">:</span> <span class="s">service_b.yml</span>
+  <span class="na">when</span><span class="pi">:</span> <span class="s">manual</span>
+</code></pre></div></div>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># service_b.yml</span>
+<span class="na">child-job</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "This is service "B" - child job!"</span>
+</code></pre></div></div>
+
+<p>The result is:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-trigger-manual.png" alt="gitlab-trigger-manual" />
+        
+        
+            <figcaption>Parent Child Manual Trigger</figcaption>
+        
+    </figure>
+</div>
+
+<p>And when triggered:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-manual-triggered.png" alt="gitlab-manual-triggered" />
+        
+        
+            <figcaption>Parent Child Manual Triggered</figcaption>
+        
+    </figure>
+</div>
+
+<h4 id="multiple">Multiple</h4>
+
+<p>Obviously our child pipeline can be the parent of a new child pipeline, so 
+let’s add a new job <code class="language-plaintext highlighter-rouge">service_c</code> that will trigger a new child pipeline with one 
+job and a trigger that depends on the job.</p>
+
+<p>Edit the <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code> file:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .gitlab-ci.yml</span>
+
+<span class="c1"># ... same as above</span>
+
+<span class="na">service_c</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">services</span>
+  <span class="na">needs</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">build-job</span>
+  <span class="na">trigger</span><span class="pi">:</span>
+    <span class="na">include</span><span class="pi">:</span> <span class="s">service_c.yml</span>
+</code></pre></div></div>
+
+<p>Define the new configuration file for <code class="language-plaintext highlighter-rouge">service_c</code> child pipeline:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># service_c.yml</span>
+
+<span class="na">stages</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">build-c</span>
+ <span class="pi">-</span> <span class="s">deploy-c</span>
+
+<span class="na">build-service-c</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">build-c</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "Building service C!"</span>
+
+<span class="na">deploy-service-c</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">deploy-c</span>
+  <span class="na">needs</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">build-service-c</span>
+  <span class="na">trigger</span><span class="pi">:</span>
+    <span class="na">include</span><span class="pi">:</span> <span class="s">deploy_service_c.yml</span>
+</code></pre></div></div>
+
+<p>Finally, define the another child pipeline that we will call 
+<code class="language-plaintext highlighter-rouge">deploy_service_c</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">stages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">deploy</span>
+
+<span class="na">deploy-service-c</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">deploy</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "Deploying service C!"</span>
+</code></pre></div></div>
+
+<p>The pipeline now looks like:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-trigger-multiple.png" alt="gitlab-trigger-multiple" />
+        
+        
+            <figcaption>Multiple Parent Child Triggers</figcaption>
+        
+    </figure>
+</div>
+
+<h3 id="dynamic">Dynamic</h3>
+
+<p>Defining configuration files manually is tiresome and error prone. A better 
+way is to configure our pipelines in such a way that the configuration files 
+are generated on the fly.</p>
+
+<h4 id="simple">Simple</h4>
+
+<p>The way we are going to approach this is to define three things:</p>
+
+<ul>
+  <li>Script that generates the configuration</li>
+  <li>Job that will generate the child pipeline configuration and store it as a 
+<a href="https://docs.gitlab.com/ee/ci/pipelines/job_artifacts.html"><code class="language-plaintext highlighter-rouge">job artifact</code></a> - 
+which is just a file or directory that other jobs in the pipeline can 
+reference.</li>
+  <li>Trigger job (just like in the previous section) but 
+this time, it will use the artifact and not static <code class="language-plaintext highlighter-rouge">.yml</code> files.</li>
+</ul>
+
+<p>The simplest way of generating a child configuration is to pass an argument 
+to the script, for example <code class="language-plaintext highlighter-rouge">A,B,C</code> and based on that it will generate multiple 
+jobs: <code class="language-plaintext highlighter-rouge">test-A-job</code>, <code class="language-plaintext highlighter-rouge">test-B-job</code>, and <code class="language-plaintext highlighter-rouge">test-C-job</code>.</p>
+
+<p>The following code defines the script <code class="language-plaintext highlighter-rouge">child_generator.py</code> which generates 
+the configuration and stores it in <code class="language-plaintext highlighter-rouge">child_pipeline.yml</code> file (that will be used 
+as an artifact).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># child_generator.py
+</span><span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">def</span> <span class="nf">generate_job</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"""
+test-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">-job:
+  script:
+    - echo "Testing </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">"
+"""</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"child_pipeline.yml"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">f_out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">generate_job</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Next, we define the <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code>. We need two jobs:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">generate-child-pipeline</code> - to generate the child pipeline configuration 
+based on an argument and output it as an artifact</li>
+  <li><code class="language-plaintext highlighter-rouge">trigger-child-pipeline</code> - to include the artifact and trigger the 
+child pipeline</li>
+</ul>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">stages</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">build</span>
+ <span class="pi">-</span> <span class="s">child-generator</span>
+ <span class="pi">-</span> <span class="s">child-trigger</span>
+
+<span class="na">build-job</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">build</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "Hello, $GITLAB_USER_LOGIN!"</span>
+
+<span class="na">generate-child-pipeline</span><span class="pi">:</span>
+ <span class="na">stage</span><span class="pi">:</span> <span class="s">child-generator</span>
+ <span class="na">needs</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">build-job</span>
+ <span class="na">script</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">python3 child_generator.py A,B,C</span>
+ <span class="na">artifacts</span><span class="pi">:</span>
+   <span class="na">paths</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">child_pipeline.yml</span>
+
+<span class="na">trigger-child-pipeline</span><span class="pi">:</span>
+ <span class="na">stage</span><span class="pi">:</span> <span class="s">child-trigger</span>
+ <span class="na">trigger</span><span class="pi">:</span>
+   <span class="na">include</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">artifact</span><span class="pi">:</span> <span class="s">child_pipeline.yml</span>
+       <span class="na">job</span><span class="pi">:</span> <span class="s">generate-child-pipeline</span>
+</code></pre></div></div>
+
+<p>The result:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-dynamic-simple.png" alt="gitlab-dynamic-simple" />
+        
+        
+            <figcaption>Simple Dynamic Parent Child Pipeline</figcaption>
+        
+    </figure>
+</div>
+
+<p>The important thing is that the argument <code class="language-plaintext highlighter-rouge">A,B,C</code> can really be 
+anything.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># example</span>
+<span class="na">script</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">ARG=`&lt;fetch-arguments&gt;`</span>
+  <span class="pi">-</span> <span class="s">python3 child_generator.py "$ARG"</span>
+</code></pre></div></div>
+
+<p>The job script can fetch or generate arguments that are passed to 
+the child pipeline generator script, which makes it truly dynamic.</p>
+
+<h4 id="nested">Nested</h4>
+
+<p>Let’s say that we want to build a pipeline that fetches the names of services 
+and for each service builds a dedicated pipeline that will build, test, and 
+deploy it. This extends the example from the previous section by adding an 
+additional configuration generator for building, testing, and deploying.</p>
+
+<p>The starting point is the same, we define two jobs and the 
+<code class="language-plaintext highlighter-rouge">services_generator.py</code> script that will generate child pipelines for 
+generating dedicated pipelines for each service:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .gitlab-ci.yml</span>
+<span class="na">stages</span><span class="pi">:</span>
+ <span class="pi">-</span> <span class="s">build</span>
+ <span class="pi">-</span> <span class="s">generate-services</span>
+ <span class="pi">-</span> <span class="s">trigger-services</span>
+
+<span class="na">build-job</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">buildchild pipelines for each</span> 
+<span class="na">service</span><span class="pi">:</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">echo "Hello, $GITLAB_USER_LOGIN!"</span>
+
+<span class="na">generate-service-pipelines</span><span class="pi">:</span>
+ <span class="na">stage</span><span class="pi">:</span> <span class="s">generate-services</span>
+ <span class="na">needs</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">build-job</span>
+ <span class="na">script</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">python3 services_generator.py A,B,C</span>
+ <span class="na">artifacts</span><span class="pi">:</span>
+   <span class="na">paths</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">services.yml</span>
+
+<span class="na">trigger-service-pipelines</span><span class="pi">:</span>
+ <span class="na">stage</span><span class="pi">:</span> <span class="s">trigger-services</span>
+ <span class="na">trigger</span><span class="pi">:</span>
+   <span class="na">include</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">artifact</span><span class="pi">:</span> <span class="s">services.yml</span>
+       <span class="na">job</span><span class="pi">:</span> <span class="s">generate-service-pipelines</span>
+</code></pre></div></div>
+
+<p>However, <code class="language-plaintext highlighter-rouge">services_generator.py</code> now creates a pipeline configuration that 
+calls <code class="language-plaintext highlighter-rouge">service_generator.py</code> which will generate a child pipeline dedicated 
+for that specific service.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># services_generator.py
+</span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">generate_header</span><span class="p">():</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"""
+stages:
+  - generate-service
+  - trigger-service
+"""</span>
+
+<span class="k">def</span> <span class="nf">generate_service_pipeline</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"""
+generate-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">-service:
+  stage: generate-service
+  script:
+    - python3 service_generator.py </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">
+  artifacts:
+    paths:
+      - service_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">_pipeline.yml
+  when: manual
+
+trigger-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">-service:
+  stage: trigger-service
+  needs:
+    - generate-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">-service
+  trigger:
+    include:
+      - artifact: service_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">_pipeline.yml
+        job: generate-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">-service
+"""</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"services.yml"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+        <span class="n">f_out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">generate_header</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">f_out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">generate_service_pipeline</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Finally, we need to define <code class="language-plaintext highlighter-rouge">service_generator.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># service_generator.py
+</span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">generate_header</span><span class="p">():</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"""
+stages:
+  - build
+  - test
+  - deploy
+"""</span>
+
+<span class="k">def</span> <span class="nf">generate_job</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"""
+build-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">:
+  stage: build
+  script:
+    - echo "Building service </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">"
+
+test-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">:
+  stage: test
+  needs:
+    - build-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">
+  script:
+    - echo "Testing service </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">"
+
+deploy-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">:
+  stage: deploy
+  needs:
+    - build-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">
+    - test-</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">
+  script:
+    - echo "Deploying service </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">"
+  when: manual
+"""</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s">"service_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">_pipeline.yml"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+      <span class="n">f_out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">generate_header</span><span class="p">())</span>
+      <span class="n">f_out</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">generate_job</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The first part of the pipeline looks like this:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-dynamic-nested-one.png" alt="gitlab-dynamic-nested-one" />
+        
+        
+            <figcaption>Nested Dynamic Parent Child Pipeline</figcaption>
+        
+    </figure>
+</div>
+
+<p>Based on the argument <code class="language-plaintext highlighter-rouge">A,B,C</code> we now have three child pipelines that generate 
+dedicated pipelines. Once activated, the rest of the setup looks like this:</p>
+
+<div class="figure-div">
+    <figure>
+        
+        <img src="/assets/images/posts/gitlab-parent-child-pipelines/gitlab-dynamic-nested-two.png" alt="gitlab-dynamic-nested-two" />
+        
+        
+            <figcaption>Nested Dynamic Parent Child Pipeline</figcaption>
+        
+    </figure>
+</div>
+
+<h2 id="final-words">Final Words</h2>
+
+<p>The focus of this article was to show you how we can use automation and 
+parent-child pipelines in order to:</p>
+<ul>
+  <li>Increase efficiency</li>
+  <li>Reduce complexity</li>
+  <li>Optimize performance</li>
+  <li>Improve readability and future development</li>
+</ul>
+
+<p>We’ve seen what parent-child pipelines represent, why they are important, and 
+how to configure them both statically and dynamically. Additionally, I’ve added 
+a section on how to configure GitLab locally and establish a playground so 
+you can experiment on your own.</p>
+
+<p>Provided code examples are just dummy examples whose purpose is to 
+introduce the concepts and spark your interest. The exact implementation, 
+of course, depends on the project and its use case.</p>
+
+<p>I hope you enjoyed reading this article and, as always, feel free to reach 
+out to me if you have any questions or suggestions.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://medium.com/@pranay.urkude/how-to-setup-gitlab-ci-locally-a8bfe273ce60">How to setup GitLab CI locally?</a></li>
+  <li><a href="https://docs.gitlab.com/ee/ci/pipelines/parent_child_pipelines.html">GitLab Documentation - Parent-child Pipelines</a></li>
+  <li><a href="https://infinitelambda.com/post/dynamic-pipeline-generation-gitlab/">Dynamic Pipeline Generation on GitLab</a></li>
+</ul>
