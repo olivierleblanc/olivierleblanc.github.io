@@ -1,0 +1,1 @@
+**git publish** to push the website to github pages (see git config file).
