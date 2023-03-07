@@ -35,4 +35,4 @@ test
 banner.js
 .travis.yml
 
-_site
+_site/
