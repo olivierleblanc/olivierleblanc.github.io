@@ -289,48 +289,6 @@ function showBib(element) {
 </script>
 
 <div class="row">
-  <h1></h1>
-  <h2>
-    <!-- Entry bib key -->
-    <div id="euler23" class="col-sm-8">
-    
-      <!-- Title -->  
-      <div class="title">Euler seminar</div>
-      <!-- Author -->
-      <div class="author">
-      </div>
-
-      <!-- Journal/Book title and date -->
-      <div class="periodical">
-        <em>Interferometric Lensless Imaging : Rank-one Projections of Image Frequencies with Speckle Illuminations</em> Feb 2023
-      </div>
-    
-      <!-- Links/Buttons -->
-      <div class="links">
-        <a class="abstract btn btn-sm z-depth-0" role="button" onclick="showAbstract(this)">    
-          Abs</a>
-        <a href="/assets/pdf/seminar_inma.pdf" class="btn btn-sm z-depth-0" role="button">Slides</a>
-      </div>
-
-      <!-- Hidden abstract block -->
-      <div class="abstract hidden">
-        <p>Lensless endoscopy with multicore fibers (MCF) is a technology that enables fluorescent imaging of biological samples at cellular scale. In this talk, I will show that under a common far-field approximation, the corresponding speckle imaging process is tantamount to collecting multiple symmetric rank-one projections (SROP) of an Hermitian interferometric matrix—a matrix encoding a subsampling of the Fourier transform of the sample image. Specifically, each SROP of this matrix is achieved with the complex vector shaping the incident wavefront using a spatial light modulator (SLM), and, for specific MCF core arrangements, the interferometric matrix collects as many image frequencies as the square of the core number. Configuring the SLM randomly allows us to characterize the sample complexity of the system through a two-component sensing perspective. In particular, by inspecting the separate dimensional conditions ensuring the specific restricted isometry properties of the two composing sensing models in the observation of sparse images, we show that a basis pursuit denoising (BPDN) program associated with an L1-fidelity cost provably provides a stable and robust image estimate. In parallel, numerical and experimental reconstruction results demonstrate the effectiveness of this imaging procedure for a TV-penalized formulation of the inverse problem. </p>
-      </div>
-    </div>
-  </h2>
-</div></li>
-<li><!-- _layouts/bib.html -->
-<script>
-function showAbstract(element) {
-  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
-};
-function showBib(element) {
-  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
-  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
-};
-</script>
-
-<div class="row">
   <h1><img class="card-img-top" src="/assets/images/../../assets/images/IDT.png" width="200px" /></h1>
   <h2>
     <!-- Entry bib key -->
@@ -357,6 +315,48 @@ function showBib(element) {
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
         <p>Informal presentation to the CIG group at WashU. I’m briefly presenting my past research and deriving Lippmann-Schwinger equation from Maxwell’s. Then I discuss my research goals for my stay at WashU.</p>
+      </div>
+    </div>
+  </h2>
+</div></li>
+<li><!-- _layouts/bib.html -->
+<script>
+function showAbstract(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
+};
+function showBib(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
+  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
+};
+</script>
+
+<div class="row">
+  <h1></h1>
+  <h2>
+    <!-- Entry bib key -->
+    <div id="euler23" class="col-sm-8">
+    
+      <!-- Title -->  
+      <div class="title">Euler seminar</div>
+      <!-- Author -->
+      <div class="author">
+      </div>
+
+      <!-- Journal/Book title and date -->
+      <div class="periodical">
+        <em>Interferometric Lensless Imaging : Rank-one Projections of Image Frequencies with Speckle Illuminations</em> Feb 2023
+      </div>
+    
+      <!-- Links/Buttons -->
+      <div class="links">
+        <a class="abstract btn btn-sm z-depth-0" role="button" onclick="showAbstract(this)">    
+          Abs</a>
+        <a href="/assets/pdf/seminar_inma.pdf" class="btn btn-sm z-depth-0" role="button">Slides</a>
+      </div>
+
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Lensless endoscopy with multicore fibers (MCF) is a technology that enables fluorescent imaging of biological samples at cellular scale. In this talk, I will show that under a common far-field approximation, the corresponding speckle imaging process is tantamount to collecting multiple symmetric rank-one projections (SROP) of an Hermitian interferometric matrix—a matrix encoding a subsampling of the Fourier transform of the sample image. Specifically, each SROP of this matrix is achieved with the complex vector shaping the incident wavefront using a spatial light modulator (SLM), and, for specific MCF core arrangements, the interferometric matrix collects as many image frequencies as the square of the core number. Configuring the SLM randomly allows us to characterize the sample complexity of the system through a two-component sensing perspective. In particular, by inspecting the separate dimensional conditions ensuring the specific restricted isometry properties of the two composing sensing models in the observation of sparse images, we show that a basis pursuit denoising (BPDN) program associated with an L1-fidelity cost provably provides a stable and robust image estimate. In parallel, numerical and experimental reconstruction results demonstrate the effectiveness of this imaging procedure for a TV-penalized formulation of the inverse problem. </p>
       </div>
     </div>
   </h2>
