@@ -101,6 +101,9 @@ function showBib(element) {
       {%- if entry.arxiv %}
       <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
       {%- endif %}
+      {%- if entry.dial %}
+      <a href="{{ entry.dial }}" class="btn btn-sm z-depth-0" role="button">DIAL</a>
+      {%- endif %}
       {%- if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button" onclick="showBib(this)">Bib</a>
       {%- endif %}
