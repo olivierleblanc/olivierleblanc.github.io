@@ -284,6 +284,43 @@ function showBib(element) {
 </script>
 
 <div class="row">
+  <h1><img class="card-img-top" src="/assets/images/../../assets/images/IDT.png" width="200px" /></h1>
+  <h2>
+    <!-- Entry bib key -->
+    <div id="math-image23" class="col-sm-8">
+    
+      <!-- Title -->  
+      <div class="title">CoLSI: Continuous Lippmann-Schwinger Intensity Diffraction Tomography</div>
+      <!-- Author -->
+      <div class="author">Olivier Leblanc,&nbsp;Laurent Jacques,&nbsp;and Ulugbek Kamilov
+      </div>
+
+      <!-- Journal/Book title and date -->
+      <div class="periodical">
+        <em></em> Sep 2023
+      </div>
+    
+      <!-- Links/Buttons -->
+      <div class="links">
+        <a href="/assets/pdf/Marseille23.pdf" class="btn btn-sm z-depth-0" role="button">Poster</a>
+      </div>
+
+      
+    </div>
+  </h2>
+</div></li>
+<li><!-- _layouts/bib.html -->
+<script>
+function showAbstract(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("abstract hidden")[0]).toggleClass('open');
+};
+function showBib(element) {
+  $(element.parentNode.parentNode.getElementsByClassName("bibtex hidden")[0]).toggleClass('open');
+  // $('.navbar-nav').find('a').removeClass('waves-effect waves-light');
+};
+</script>
+
+<div class="row">
   <h1></h1>
   <h2>
     <!-- Entry bib key -->
@@ -297,7 +334,7 @@ function showBib(element) {
 
       <!-- Journal/Book title and date -->
       <div class="periodical">
-        <em></em> Jun 2023
+        <em>ISCS</em> Jun 2023
       </div>
     
       <!-- Links/Buttons -->
@@ -321,6 +358,7 @@ function showBib(element) {
   <span class="na">dial</span> <span class="p">=</span> <span class="s">{https://dial.uclouvain.be/pr/boreal/object/boreal:276904}</span><span class="p">,</span>
   <span class="na">month</span> <span class="p">=</span> <span class="nv">jun</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2023}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span> <span class="s">{ISCS}</span><span class="p">,</span>
   <span class="na">bibtex_show</span> <span class="p">=</span> <span class="s">{true}</span>
 <span class="p">}</span></code></pre></figure>
       </div>
@@ -361,6 +399,7 @@ function showBib(element) {
           Abs</a>
       <a href="http://arxiv.org/abs/2306.12698" class="btn btn-sm z-depth-0" role="button">arXiv</a>
         <a class="bibtex btn btn-sm z-depth-0" role="button" onclick="showBib(this)">Bib</a>
+        <a href="https://github.com/olivierleblanc/interferometric_lensless_imaging.git" class="btn btn-sm z-depth-0" role="button">Code</a>
       </div>
 
       <!-- Hidden abstract block -->
@@ -375,6 +414,7 @@ function showBib(element) {
   <span class="na">month</span> <span class="p">=</span> <span class="nv">jun</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2023}</span><span class="p">,</span>
   <span class="na">abbr</span> <span class="p">=</span> <span class="s">{schema.png}</span><span class="p">,</span>
+  <span class="na">code</span> <span class="p">=</span> <span class="s">{https://github.com/olivierleblanc/interferometric_lensless_imaging.git}</span><span class="p">,</span>
   <span class="na">bibtex_show</span> <span class="p">=</span> <span class="s">{true}</span>
 <span class="p">}</span></code></pre></figure>
       </div>
