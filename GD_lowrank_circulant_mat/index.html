@@ -1,0 +1,488 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Low-rank circulant matrices - olivierleblanc</title>
+<meta name="description" content="A blog discussing topics around programming, data science/engineering, and cloud technologies.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="olivierleblanc">
+<meta property="og:title" content="Low-rank circulant matrices">
+<meta property="og:url" content="http://localhost:4000/GD_lowrank_circulant_mat/">
+
+
+  <meta property="og:description" content="A blog discussing topics around programming, data science/engineering, and cloud technologies.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/posts/semantic-search/similarity-header.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-03-03T00:00:00+01:00">
+
+
+
+  <meta property="article:modified_time" content="2024-03-03T00:00:00+01:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/GD_lowrank_circulant_mat/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Olivier Leblanc",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- LATEX -->
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
+<script>
+  window.MathJax = {
+    jax: ["input/TeX", "output/CommonHTML"],
+    extensions: ["tex2jax.js", "asciimath2jax.js", "mml2jax.js", "MathMenu.js", "MathZoom.js"],
+    TeX: {
+      extensions: ["AMSmath.js", "AMSsymbols.js", "autoload-all.js"]
+    },
+    displayIndent: 0,
+    tex2jax: {
+      inlineMath: [
+        ['$', '$'],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true
+    },
+    showMathMenu: false,
+    showProcessingMessages: false,
+    messageStyle: "none",
+    menuSettings: { zoom: "Click" },
+    AuthorInit: function () {
+      MathJax.Hub.Register.StartupHook("End", function () {
+        var timeout = false, // holder for timeout id
+          delay = 250; // delay after event is "complete" to run callback
+        var shrinkMath = function () {
+          var dispFormulas = document.getElementsByClassName("formula");
+          if (dispFormulas) {
+            // caculate relative size of indentation
+            var contentTest = document.getElementsByTagName("body")[0];
+            var nodesWidth = contentTest.offsetWidth;
+            // if you have indentation
+            var mathIndent = MathJax.Hub.config.displayIndent; //assuming px's
+            // var mathIndentValue = mathIndent.substring(0, mathIndent.length - 2);
+            for (var i = 0; i < dispFormulas.length; i++) {
+              var dispFormula = dispFormulas[i];
+              var wrapper = dispFormula.getElementsByClassName("MathJax_Preview")[0].nextSibling;
+              var child = wrapper.firstChild;
+              wrapper.style.transformOrigin = "top-left"; //or top-left if you left-align your equations
+              var oldScale = child.style.transform;
+              var newValue = Math.min(0.80 * dispFormula.offsetWidth / child.offsetWidth, 1.0).toFixed(2);
+              var newScale = "scale(" + newValue + ")";
+              if (!(newScale === oldScale)) {
+                wrapper.style.transform = newScale;
+                // wrapper.style["margin-left"] = Math.pow(newValue, 4) * mathIndentValue + "px";
+                var wrapperStyle = window.getComputedStyle(wrapper);
+                var wrapperHeight = parseFloat(wrapperStyle.height);
+                wrapper.style.height = "" + (wrapperHeight * newValue) + "px";
+                if (newValue === "1.00") {
+                  wrapper.style.cursor = "";
+                  wrapper.style.height = "";
+                }
+                else {
+                  wrapper.style.cursor = "zoom-in";
+                }
+              }
+
+            }
+          }
+        };
+        shrinkMath();
+        window.addEventListener('resize', function () {
+          clearTimeout(timeout);
+          timeout = setTimeout(shrinkMath, delay);
+        });
+      });
+    }
+  };
+
+  (function (d, script) {
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function () {
+      // remote script has loaded
+    };
+    script.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+    d.getElementsByTagName('head')[0].appendChild(script);
+  }(document));
+</script>
+
+<!--________________________________________ -->
+<!-- TOGGLE BETWEEN DARK MODE AND LIGHT MODE -->
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/theme1.css" id="theme_source">
+
+<link rel="stylesheet alternate" href="/assets/css/theme2.css" id="theme_source_2">
+<script>
+  let theme = sessionStorage.getItem('theme');
+  if (theme === "dark") {
+    sessionStorage.setItem('theme', 'dark');
+    node1 = document.getElementById('theme_source');
+    node2 = document.getElementById('theme_source_2');
+    node1.setAttribute('rel', 'stylesheet alternate');
+    node2.setAttribute('rel', 'stylesheet');
+  }
+  else {
+    sessionStorage.setItem('theme', 'light');
+  }
+</script>
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+</noscript>
+
+
+  </head>
+
+  <body class="layout--single">
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Olivier Leblanc
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/talks/">Talks</a>
+            </li><li class="masthead__menu-item">
+              <a href="/teaching/">Teaching</a>
+            </li><li class="masthead__menu-item">
+              <a href="/worth_sharing/">Worth Sharing</a>
+            </li></ul>
+         <!-- HERE CHOSE THE LOGO TO TOGGLE THEME -->
+        <button class="theme__toggle" type="button">
+          <i class="fas fa-fw fa-adjust" aria-hidden="true" 
+              onclick="node1=document.getElementById('theme_source');
+              node2=document.getElementById('theme_source_2');
+              if(node1.getAttribute('rel')=='stylesheet'){
+                node1.setAttribute('rel', 'stylesheet alternate'); 
+                node2.setAttribute('rel', 'stylesheet');
+                sessionStorage.setItem('theme', 'dark');
+              }
+              else{
+                node2.setAttribute('rel', 'stylesheet alternate'); 
+                node1.setAttribute('rel', 'stylesheet');
+                sessionStorage.setItem('theme', 'light');
+              } 
+              return false;">
+          </i>
+        </button>
+        
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  <!-- 
+ -->
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Low-rank circulant matrices">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-03-03T00:00:00+01:00">
+    <meta itemprop="dateModified" content="2024-03-03T00:00:00+01:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/GD_lowrank_circulant_mat/" class="u-url" itemprop="url">Low-rank circulant matrices
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-03-03T00:00:00+01:00">March 3, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Content</h4></header>
+              
+
+            </nav>
+          </aside>
+        
+        <!-- Load MathJax Configuration -->
+<script src="/assets/js/mathjax-config.js"></script>
+
+<!-- Load MathJax library -->
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+</script>
+
+<blockquote>
+  <p><strong>Theorem.</strong> 
+A circulant matrix \(\bs C \in \Cbb^{N\times N}\) which has been generated using the DFT \(\bs u = \bs{Fv} \in \Cbb^N\) (with \(\bs F\) the DFT matrix) of a \(K\)-sparse vector \(\bs v \in \Cbb^N\) is rank-\(K\).</p>
+</blockquote>
+
+<p><strong>Proof.</strong> 
+If \(\bs v\) is \(K\)-sparse (\(\norm{}{\bs v}{0} \le K\)), it can be written as</p>
+
+\[\begin{equation} \tag{1} \label{eq:sparse}
+    \bs v = \sum_{q=0}^{K-1} \rho_q \bs e_{p_q}.
+\end{equation}\]
+
+<p>Moreover, let \(T(\bs u)\) be the operator that turns a vector \(\bs u \in \Cbb^N\)
+into a circulant matrix, that is, in <em>modulo arithmetic</em> (\(u_{k-l} = u_{\modulo{k-l}{N}}\))</p>
+
+\[\begin{equation}
+    (T(\bs u))_{k,l} = u_{k-l}
+\end{equation}\]
+
+<p>We can write \(\bs C = T(\bs u) = T(\bs{Fv})\). We also have \(u_a = \sum_{b=0}^{N-1} F_{a,b} v_b\). The circulant matrix at index \(jk\) can thus write</p>
+
+\[\begin{align} \tag{2} \label{eq:dev}
+\begin{split}
+    C_{jk} &amp;= u_{j-k} = \sum_{l=0}^{N-1} F_{j-k,l}~ v_l 
+    \underset{\eqref{eq:sparse}}{=} \sum_{l=0}^{N-1} F_{j-k,l} 
+    \sum_{q=0}^{K-1} \rho_q \delta_{l,p_q} \\ 
+    &amp;= \sum_{q=0}^{K-1} \rho_q F_{j-k,p_q } 
+    \underbrace{\sum_{l=0}^{N-1} \delta_{l,p_q}}_{=1} \\
+    &amp;= \sum_{q=0}^{K-1} \rho_q F_{j,p_q} F_{k,p_q}^*
+\end{split}
+\end{align}\]
+
+<p>where the last line in Eq.~\eqref{eq:dev} is obtained thanks to the 
+definition of the coefficients of the DFT matrix 
+\(F_{jk} = e^{\frac{-\im 2\pi jk}{N}}\). This is the critical property which 
+allows this proof. Finally, the circulant matrix writes as</p>
+
+\[\begin{equation} \tag{3} \label{eq:not1}
+    \bs C = \sum_{q=0}^{K-1} \rho_q \bs f[p_q] \bs f[p_q]^*
+\end{equation}\]
+
+<p>with \(\bs f [n] := \bs F_{:,n}\), which makes it rank-\(K\).</p>
+
+<p>The circulant matrix \(\bs C\) in \eqref{eq:not1} can also be equivalently represented as</p>
+
+\[\begin{equation} \tag{4} \label{eq:quasiSVD}
+    \bs C = \begin{bmatrix}
+        &amp; &amp; &amp; \\
+        &amp; &amp; &amp; \\
+        \bs f [p_0] &amp; \bs f [p_1] &amp; \dots \\
+        &amp; &amp; &amp; \\
+        &amp; &amp; &amp;
+    \end{bmatrix} \begin{bmatrix}
+        \rho_0 &amp; &amp; &amp; \\
+        &amp; \rho_1 &amp; &amp; \\
+        &amp; &amp; \rho_2 &amp; \\ 
+        &amp; &amp; &amp; \ddots 
+    \end{bmatrix} \begin{bmatrix}
+        &amp; &amp; \bs f^*[p_0] &amp; &amp; \\
+        &amp; &amp; \bs f^*[p_1] &amp; &amp; \\
+        &amp; &amp; \vdots &amp; &amp; \\
+    \end{bmatrix} = \bs{FP} \diag(\bs \rho) \bs P^* \bs F^*,
+\end{equation}\]
+
+<p>with \(\bs \rho \in \Rbb^K\) containing the \(K\) coefficients of the vector \(\bs v\)
+which also shows \(\bs C\) is rank-\(K\).</p>
+
+<ul>Note:</ul>
+<p>With the conventional writing \(\bs v = \sum_{l=0}^{N-1} v_l \bs e_l\), a derivation similar
+to \eqref{eq:dev} would lead to \(\bs C = \sum_{l=0}^{N-1} v_l \bs f[l] \bs f[l]^*\).</p>
+
+<p>Thus</p>
+
+\[\begin{equation} \label{eq:decomp}
+\bs C = \bs F \diag( \bs v) \bs F^*    
+\end{equation}\]
+
+<p>We see that \eqref{eq:quasiSVD} is very close to the SVD defition: 
+\(\bs C := \bs U \bs{\Sigma V}^*\). The subtlety comes where the singular values in \(\bs \Sigma\) are (i) all positive and (ii) aranged in descending order. 
+(i) implies \(\bs C = \bs F \bs P |\diag(\bs \rho)| \bs P^* \tilde{\bs F}^*\) where \(\tilde{\bs F}^*\) is the Fourier matrix with each column \(i\) multiplied by \(+1\) or \(-1\) depending on the sign of associated \(\rho_i\). 
+(ii) implies the selection matrix \(\bs P\) must also contain permutation to ensure \(\bs \rho\) is aranged in descending order.</p>
+
+<p>To synthetize, we have</p>
+
+\[\begin{align}
+\bs C &amp;= \bs F \diag (\bs v) \bs F^* \\
+&amp;= \bs F \diag(|\bs v|) \bs S \bs F^*\\
+&amp;= \bs F \bs P^* \diag(|\tilde{\bs v}|) \bs{PSF}^* \\
+&amp;= \bs{U\Sigma V}^*,
+\end{align}\]
+
+<p>with \(\bs S = \diag(\text{sign}(\bs v))\), \(\bs P\) is a permutation matrix such that 
+\(\bs P |\bs v| = |\tilde{\bs v}|\) and \(\tilde{v}_k \ge |\tilde{v}_{k+1}|\), \(\bs \Sigma
+= \diag(|\tilde{\bs v}|)\), and the unitary matrices \(\bs U = \bs F \bs P^*\), and 
+\(\bs V = \bs F \bs S \bs P\). By definition, this means that 
+\(\bs U \bs \Sigma \bs V^*\) is the SVD decomposition of \(\bs C\).</p>
+
+<p>In fact, \(\bs U \bs \Sigma \bs V^* = \bs U \bs Z \bs \Sigma \bs Z^* \bs V^*\)
+for any \(\bs Z = {\rm diag}(\bs z)\) such that \(\bs Z \bs Z^* = \bs I\) 
+(that is, \(\bs z\) is such that \(|z_k|=1\)). 
+So we can choose \(\bs z\) to make \(\bs U\bs Z\) and \(\bs V \bs Z\) real, 
+as in J. Romberg developments.</p>
+
+<p>This proves a rank-\(K\) circulant matrix contains only \(K\) degrees of freedom, very less than a general rank-\(K\) matrix containing \((2K+1)N\) DOFs.</p>
+
+<p>We also see a circulant matrix is hermitian if \(\bs v \in \Rbb^N\) as \(\bs C^* = \bs F \diag(\bs v)^* \bs F^* = \bs F \diag(\bs v) \bs F^* = \bs C \Leftrightarrow \bs v = \bs v^*\).</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-03">March 3, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Tips/" class="pagination--pager" title="Some tips for scientists
+">Previous</a>
+    
+    
+      <a href="/GD_stepsize/" class="pagination--pager" title="The ideal constant stepsize of gradient descent
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  </body>
+</html>
