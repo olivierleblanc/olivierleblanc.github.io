@@ -1,6 +1,67 @@
 ---
 ---
 
+@phdthesis{phdthesis,
+  author      = {Olivier Leblanc},
+  school      = {UCLouvain},
+  title       = {Compressive and neural-representation strategies for inverse problems From interferometric imaging to diffraction tomography},
+  year        = {2024},
+  pdf = {../../assets/pdf/phdthesis.pdf},
+  abbr = {../../assets/images/phdthesis.png},
+  abstract = {Computational imaging has revolutionized our capabilities to sense the environment, enabling a wide range of applications in domains like medical, biological, or radio-astronomical imaging. This thesis broadens the scope of the computational imaging framework in two main directions.
+First, the principle of compressive imaging---i.e. capturing the image information with few linear projections data---is applied to two interferometric imaging applications, namely multicore fiber lensless imaging and radio-interferometry. In both cases, it is shown that compressive imaging is possible with random projections applied at the level of the interfering elements, resulting in a linear sensing model involving Fourier subsampling and rank-one projections. In addition to the analysis of their computational complexities, the sensing models are accompanied by uniform recovery guarantees highlighting their sample complexities---the number of interfering elements and number of measurements required for image recovery. The theoretical sample complexities are confirmed numerically, and also experimentally for multicore fiber imaging. 
+Second, contributions are brought to the field of diffraction tomography, proposing a combination of an implicit neural representation---a continuous image representation by a neural network---and a nonlinear (multiple-scattering) sensing model. Significant efforts are made in a review of the different ways to model electromagnetic wave diffraction through inhomogeneous media, leveraging first-order optimization methods to solve the subsequent linear system of equations. The reconstruction of the 3-D image through the weights of an implicit neural representation instead of discrete voxels is proposed for this nonlinear sensing model, demonstrating the benefit of (i) the nonlinearity over linear approximations of the model, and (ii) the continuous representation for handling rotations of the object. The drawbacks of the approach are highlighted and improvements necessary for experimental use are discussed.},
+}
+
+@article{leblanc24b,
+  author={Olivier Leblanc and Yves Wiaux and Laurent Jacques},
+  title     = {Compressive radio-interferometric sensing with random beamforming as rank-one signal covariance projections},
+  arxiv = {2409.15031},
+  month     = {September},
+  year      = {2024},
+  bibtex_show = {true},
+  code = {https://github.com/olivierleblanc/RAPHA},
+  abstract = {Radio-interferometry (RI) observes the sky at unprecedented angular resolutions, enabling the study of several far-away galactic objects such as galaxies and black holes. In RI, an array of antennas probes cosmic signals coming from the observed region of the sky. The covariance matrix of the vector gathering all these antenna measurements offers, by leveraging the Van Cittert-Zernike theorem, an incomplete and noisy Fourier sensing of the image of interest. The number of noisy Fourier measurements---or \emph{visibilities}---scales as \( \mathcal O(Q^2B) \) for \( Q \) antennas and \( B \) short-time integration (STI) intervals. We address the challenges posed by this vast volume of data, which is anticipated to increase significantly with the advent of large antenna arrays, by proposing a compressive sensing technique applied directly at the level of the antenna measurements. First, this paper shows that \emph{beamforming}---a common technique of dephasing antenna signals---usually used to focus some region of the sky, is equivalent to sensing a rank-one projection (ROP) of the signal covariance matrix. We build upon our recent work \cite{leblanc24} to propose a compressive sensing scheme relying on random beamforming, trading the \( Q^2\)-dependence of the data size for a smaller number \( N_{\mathrm p} \) ROPs. We provide image recovery guarantees for sparse image reconstruction. Secondly, the data size is made independent of \( B )\ by applying \( N_{\mathrm m} \) Bernoulli modulations of the ROP vectors obtained for the STI. The resulting sample complexities, theoretically derived in a simpler case without modulations and numerically obtained in phase transition diagrams, are shown to scale as \( \mathcal O(K) \) where \( K \) is the image sparsity. This illustrates the potential of the approach. },
+  abbr = {../../assets/images/RI.png},
+}
+
+@article{kirkove2024admm,
+  title={ADMM-inspired image reconstruction for terahertz off-axis digital holography},
+  author={Kirkove, Murielle and Zhao, Yuchen and Leblanc, Olivier and Jacques, Laurent and Georges, Marc},
+  journal={Journal of the Optical Society of America A},
+  volume={41},
+  number={3},
+  pages={A1--A14},
+  year={2024},
+  publisher={Optica Publishing Group},
+  bibtex_show = {true},
+  abstract= { Image reconstruction in off-axis Terahertz digital holography is complicated due to the harsh recording conditions and the non-convexity form of the problem. In this paper, we propose an inverse problem-based reconstruction technique that jointly reconstructs the object field and the amplitude of the reference field. Regularization in the wavelet domain promotes a sparse object solution. A single objective function combining the data-fidelity and regularization terms is optimized with a dedicated algorithm based on an Alternating Direction Method of Multipliers framework. Each iteration alternates between two consecutive optimizations using projections operating on each solution and one soft thresholding operator applying to the object solution. The method is preceded by a windowing process to alleviate artifacts due to the mismatch between camera frame truncation and periodic boundary conditions assumed to implement convolution operators. Experiments demonstrate the effectiveness of the proposed method, in particular, improvements of reconstruction quality, compared to two other methods.},
+  abbr = {../../assets/images/digital_holography.png},
+}
+
+@article{ravasi2024pyproximal,
+  title={PyProximal-scalable convex optimization in Python},
+  author={Ravasi, Matteo and {\"O}rnhag, Marcus Valtonen and Luiken, Nick and Leblanc, Olivier and Uru{\~n}uela, Eneko},
+  journal={Journal of Open Source Software},
+  volume={9},
+  number={95},
+  pages={6326},
+  year={2024},
+  code={https://github.com/pylops/pyproximal/},
+  bibtex_show = {true},
+  abstract= {A broad class of problems in scientific disciplines ranging from image processing and astrophysics, to geophysics and medical imaging call for the optimization of convex, non-smooth objective functions. Whereas practitioners are usually familiar with gradient-based algorithms, commonly used to solve unconstrained, smooth optimization problems, proximal algorithms can be viewed as analogous tools for non-smooth and possibly constrained versions of such problems. These algorithms sit at a higher level of abstraction than gradient-based algorithms and require a basic operation to be performed at each iteration: the evaluation of the so-called proximal operator of the functional to be optimized. PyProximal is a Python-based library aimed at democratizing the application of convex optimization to scientific problems; it provides the required building blocks (i.e., proximal operators and algorithms) to define and solve complex, convex objective functions in a high-level, abstract fashion, shielding users away from any unneeded mathematical and implementation details.},
+}
+
+@inproceedings{sivankutty2023computational,
+  title={Computational fluorescence imaging with multi-core fiber bundles--Towards high-speed imaging through bare optical fibers},
+  author={Sivankutty, Siddharth and Guerit, St{\'e}phanie and Leblanc, Olivier and Hofer, Matthias and Bouwmans, G{\'e}raud and Andresen, Esben Ravn and Jacques, Laurent and Rigneault, Herve},
+  booktitle={The European Conference on Lasers and Electro-Optics},
+  pages={ch\_10\_1},
+  year={2023},
+  organization={Optica Publishing Group},
+  bibtex_show = {true},
+}
+
 @article{math-image23,
   author    = {{Leblanc}, Olivier and {Jacques}, Laurent and {Kamilov}, Ulugbek},
   title     = {CoLSI: Continuous Lippmann-Schwinger Intensity Diffraction Tomography},

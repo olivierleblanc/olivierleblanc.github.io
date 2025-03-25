@@ -84,11 +84,11 @@ baidu_site_verification  :
 author:
   # name   : "Olivier Leblanc"
   avatar : "/assets/images/profile.png"
-  bio    : "PhD student in Computational Imaging."
+  bio    : "Doctor in Computational Imaging."
   location:  <a href="https://www.google.com/maps?client=opera&q=louvain+la+neuve" target="_blank">UCLouvain, Belgium.</a>
   links:
     - icon: "fas fa-fw fa-envelope"
-      url: "mailto:o.leblanc@uclouvain.be"
+      url: "mailto:oliviero3@hotmail.com"
     - icon: "fas fa-fw fa-graduation-cap" 
       url: "https://scholar.google.com/citations?user=PXm-ig8AAAAJ&hl=fr&oi=sra"
     - icon: "fab fa-fw fa-github" 

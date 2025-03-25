@@ -8,6 +8,6 @@ For now, forced to push new _site on mother branch and it pollutes the commits. 
 
 Run the local preview by opening a command window and running
 ```
-cd C:\Users\leblanco.OASIS\Documents\IngeCivilPHD\olivierleblanc.github.io
+cd C:\Users\leblanco.OASIS\Documents\IngeCivilPHD\webpages\olivierleblanc.github.io
 jekyll serve
 ```

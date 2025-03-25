@@ -3,7 +3,7 @@ layout: single
 permalink: /talks/
 title: Talks
 #img: assets/img/eusipco_talk.jpg
-years: [2023]
+years: [2024,2023]
 ---
 
 <!-- {%- include figure_post.html 
