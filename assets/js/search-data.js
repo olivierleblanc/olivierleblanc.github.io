@@ -30,13 +30,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/teaching/";
-          },
         },{id: "dropdown-bookshelf",
               title: "bookshelf",
               description: "",
@@ -44,7 +37,25 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
+            },{id: "dropdown-youtube",
+              title: "youtube",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/youtube/";
+              },
+            },{id: "post-adding-the-latex-font-on-your-windows-computer",
+        
+          title: "Adding the LaTeX font on your Windows computer",
+        
+        description: "Adding the LaTeX font on your Windows computer",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/latex_font/";
+          
+        },
+      },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
         
           title: 'Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
@@ -101,6 +112,9 @@ ninja.data = [{
             },},{id: "news-i-obtained-my-pleasure-boat-license-in-martinique-speedboat",
           title: 'I obtained my pleasure boat license in Martinique :speedboat:',
           description: "",
+          section: "News",},{id: "news-i-came-back-to-belgium-belgium-after-8-months-abroad-6-months-in-martinique-palm-tree-and-2-months-of-backpacking-in-south-america-colombia-peru-bolivia",
+          title: 'I came back to Belgium :belgium: after 8 months abroad: 6 months in...',
+          description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
@@ -136,6 +150,11 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "youtube-3blue1brown",
+          title: '3Blue1Brown',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/3b1b/";
             },},{
         id: 'social-email',
         title: 'email',
