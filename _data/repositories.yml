@@ -1,14 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - olivierleblanc
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - olivierleblanc/RAPHA
+  - olivierleblanc/inkscape-tutorial
+  - olivierleblanc/ROPI
+  - olivierleblanc/Walking-droplet-in-stadium-cavity
