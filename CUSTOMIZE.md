@@ -3,6 +3,29 @@
 Here we will give you some tips on how to customize the website. One important thing to note is that **ALL** the changes you make should be done on the **main** branch of your repository. The `gh-pages` branch is automatically overwritten every time you make a change to the main branch.
 
 <!--ts-->
+
+- [Customize](#customize)
+  - [Project structure](#project-structure)
+  - [Configuration](#configuration)
+  - [Modifying the CV information](#modifying-the-cv-information)
+  - [Creating new pages](#creating-new-pages)
+  - [Creating new blog posts](#creating-new-blog-posts)
+  - [Adding Collections](#adding-collections)
+  - [Adding a new publication](#adding-a-new-publication)
+    - [Buttons (through custom bibtex keywords)](#buttons-through-custom-bibtex-keywords)
+  - [Changing theme color](#changing-theme-color)
+  - [Adding social media information](#adding-social-media-information)
+  - [Removing content](#removing-content)
+    - [Removing the blog page](#removing-the-blog-page)
+    - [Removing the projects page](#removing-the-projects-page)
+    - [Removing the repositories page](#removing-the-repositories-page)
+  - [Adding Token for Lighthouse Badger](#adding-token-for-lighthouse-badger)
+    - [Personal Access Token (fine-grained) Permissions for Lighthouse Badger:](#personal-access-token-fine-grained-permissions-for-lighthouse-badger)
+  - [Customizing fonts, spacing, and more](#customizing-fonts-spacing-and-more)
+  - [Scheduled Posts](#scheduled-posts)
+    - [Name Format](#name-format)
+    - [Important Notes](#important-notes)
+
 <!--te-->
 
 ## Project structure
