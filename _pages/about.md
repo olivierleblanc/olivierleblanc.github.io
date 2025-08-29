@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: # <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
@@ -29,104 +29,30 @@ Welcome to my homepage! :wave:
 
 ### About Me
 
-I am from Belgium :belgium:
+I am from Belgium :belgium:.
 
 I earned my BSc in electromechanical engineering, MSc in electrical engineering, and PhD in applied maths to computational imaging.
 
-My interests range from machine learning, data engineering to 
-computational optimization, and high performance computing.
+My professional interests span across multiple aspects of engineering and research, including signal processing, computational imaging, optics, machine learning, optimization, and high-performance computing.
 
-In my spare time I enjoy practicing sport :soccer: :tennis:, learning new languages :france: :spain: :netherlands:, and sometimes playing piano.
+I am playing in a soccer :soccer: team, and I am usually practicing a lot of sport :tennis: :running: :bicyclist:. I also like learning new languages :fr: :gb: :es: :netherlands:, and sometimes playing piano :musical_keyboard:.
 
-### Previous research
+### Previous research: my PhD thesis
 
-My research was about drawing on signal processing insights to reduce the computational cost of machine learning methods; see more on my research page. Don't hesitate to also check out my list of publications and related code.
+I worked within [Institute of Signal Processing Group (ISPG)](https://ispgroup.gitlab.io) and my [PhD thesis](publications/) title is *Compressive and neural-representation strategies for inverse problems-From interferometric imaging to diffraction tomography*.
 
-I worked within [Institute of Signal Processing Group (ISPG)](https://ispgroup.gitlab.io) and my research topic is *GeneCI: Physically-Driven and Generative Neural Networks for Computational Imaging*.
+Computational imaging has revolutionized our capabilities to sense the environment, enabling a wide range of applications in domains like medical, biological, or radio-astronomical imaging. My thesis broadened the scope of the computational imaging framework in two main directions.
+First, the principle of compressive imaging---i.e. capturing the image information with few linear projections data---is applied to two interferometric imaging applications, namely multicore fiber lensless imaging and radio-interferometry. In both cases, it is shown that compressive imaging is possible with random projections applied at the level of the interfering elements, resulting in a linear sensing model involving Fourier subsampling and rank-one projections. In addition to the analysis of their computational complexities, the sensing models are accompanied by uniform recovery guarantees highlighting their sample complexities---the number of interfering elements and number of measurements required for image recovery. The theoretical sample complexities are confirmed numerically, and also experimentally for multicore fiber imaging. 
+Second, contributions are brought to the field of diffraction tomography, proposing a combination of an implicit neural representation---a continuous image representation by a neural network---and a nonlinear (multiple-scattering) sensing model. Significant efforts are made in a review of the different ways to model electromagnetic wave diffraction through inhomogeneous media, leveraging first-order optimization methods to solve the subsequent linear system of equations. The reconstruction of the 3-D image through the weights of an implicit neural representation instead of discrete voxels is proposed for this nonlinear sensing model, demonstrating the benefit of (i) the nonlinearity over linear approximations of the model, and (ii) the continuous representation for handling rotations of the object. The drawbacks of the approach are highlighted and improvements necessary for experimental use are discussed.
 
-The goal of my research project is to tackle computational imaging (CI) applications that suffer both from the ill-posedness of the imaging process and high computational and memory complexities. I decided to focus on fluorescent lensless endoscopy (LE) with ultra thin multicore optical fibers (MCF), extending the work of Stephanie Guérit, a recently graduated PhD student of my current supervisor, Prof. <a href="https://laurentjacques.gitlab.io">Laurent Jacques</a>.
-    
-* ###  What is Lensless Endoscopy and what challenges does it raise?
-The lensless endoscope (LE) is a promising device to acquire in vivo 
-images at a cellular scale. The challenges raised by LE are twofold: (i) first, the miniaturization of this endoscope (its cross section amounts to a few hundreds of microns) prevents it from direct imaging using a lens, both for manufacturing and nonlinear optical effects issues (ii) second, the light actually captured by the device represents a small fraction of the initially  emitted light, either by direct reflection or fluorescence (occurring when the biological sample captures part of the energy of the incoming light and re-emits it at another larger wavelength). Hence, one requires to provide sufficient illumination power combined with a sensitive enough light sensor to hope for satisfying image reconstruction. 
-These issues make LE still an open-problem for provable recovery and real-time usage in concrete biomedical applications, compared to more matured applications such as MRI, confocal microscopy and refraction tomography.
-
-<center>
-<img
-    src="/assets/images/LEMCF.png"
-    alt="microdicom-preview"
-    caption="MicroDicom Preview"
-    width="600px"
-/>
-<figcaption> Figure 1: Working principle of a lensless endoscope viewed as an interferometric machine (legend: SLM: spatial
-light modulator; MCF: multicore optical fiber). </figcaption>
-</center>
-
-* ### What problems do I focus on?
-Here are some axes I'm considering for my PhD research:
-      
-    * interferometric Lensless Endoscopy:
-        Including the physical constraints of a LE, I refined the sensing 
-        model for a 2D object, introducing the physics of electromagnetic 
-        wave propagation, more precisely the Rayleigh-Sommerfeld equation 
-        in the Far-Field assumption, for now. This new model called
-        Interferometric Lensless Endoscopy (ILE) brings multiple advances both in a theoretical
-        and practical point of view. 
-
-        <center>
-        <img
-            src="/assets/images/schema.png"
-            alt="microdicom-preview"
-            caption="MicroDicom Preview"
-            width="600px"
-        />
-        <figcaption> Figure 2: Working principle of a lensless endoscope viewed as an interferometric machine (legend: SLM: spatial
-        light modulator; MCF: multicore optical fiber). </figcaption>
-        </center>
-      
-    * Tomographic lensless endoscopy: LE is so far limited 
-        to the observation of planar objects perpendicular to the optical 
-        fiber distal end (see Fig. 1); and this is still the
-        case with the ILE model described above. I plan to extend this 
-        modality to tomographic LE (TLE), namely to the estimation 
-        of a biological sample volume (the density of
-        fluorophore) by collecting the light re-emitted under a controlled 
-        illumination pattern.
-        Depending on what can be done in 3D with the ILE model, 
-        I will either model the forward acquisition using a 3D extended 
-        ILE model or with a physically-driven neural network (NN),
-        where the NN activation functions represent light-matter interaction, 
-        and the NN weights correspond to a discrete 3D representation 
-        of the sample. 
-       
-    * Improved TLE modeling with generative networks: 
-        TLE crucially depends on (i) an accurate model for the illumination 
-        pattern used to probe the biological sample, and (ii) a
-        suitable representation of the sample volume to regularize the 
-        related inverse problem. I will tackle the first point by learning 
-        the transformation of the wave front operated by the MCF,
-        using a supervised (or inferent) generative network (s-GN) learned 
-        in an offline calibration  stage. The second point will be 
-        solved by leveraging unsupervised GNs (u-GNs) and their
-        highly compressed latent space representation. 
-        These appealing alternatives to analytical representations of images 
-        (such as sparse wavelet representation or low-rank models) will
-        be learned with generative adversarial networks or variational 
-        autoencoders.
-
-### Affiliations
-I am funded by the Belgian "Fonds National de la Recherche Scientifique" (F.R.S.-FNRS), which granted me 4 years of research funding as "Aspirant FNRS", starting in October 2020.
-
-I'm doing my PhD at UCLouvain (Université catholique de Louvain, the university in Louvain-la-Neuve, Belgium). More precisely, I am affiliated to the ICTEAM research institute, and within it, the Electrical Engineering department (ELEN). 
-
+<img src="../assets/img/intro.svg" width="600">
+   
 ### Besides research...
 I'm doing sport almost everyday. I'm playing soccer and tennis. I also often go to the gym with friends.
 
 Very curious and passionate by science, I regularly watch videos on YouTube which vulgarize many science subjects, either very technical or also about philosophy, economy, history, ... On a smaller measure, I like reading some non-fiction stuff similar to the videos I watch.
 
 Working daily on my pc, I'm listening to music all day, with the type depending on the period (mostly rock, electro and rap).
-
-I'm currently self learning piano :)
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
