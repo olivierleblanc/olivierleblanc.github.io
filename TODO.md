@@ -5,3 +5,5 @@
 - [ ] Add favorite YouTube channels info.
 - [ ] Add `teaching` section?
 - [ ] Add books.
+- [ ] Rm no theme button?
+- [ ] Add Giscus comments.
