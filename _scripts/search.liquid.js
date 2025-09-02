@@ -179,6 +179,10 @@ ninja.data = [
           {%- assign social_id = "social-leetcode" -%}
           {%- assign social_title = "LeetCode" -%}
           {%- capture social_url %}"https://leetcode.com/u/{{ social[1] }}/"{% endcapture -%}
+        {%- when "letterboxd_id" -%}
+          {%- assign social_id = "social-letterboxd" -%}
+          {%- assign social_title = "Letterboxd" -%}
+          {%- capture social_url %}"https://letterboxd.com/{{ social[1] }}"{% endcapture -%}
         {%- when "linkedin_username" -%}
           {%- assign social_id = "social-linkedin" -%}
           {%- assign social_title = "LinkedIn" -%}

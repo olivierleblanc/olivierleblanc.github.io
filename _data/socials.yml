@@ -50,6 +50,7 @@ spotify_id: 1114181944 # your spotify id
 # x_username: # your X handle
 youtube_id: olivierleblanc721 # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: leblanco # your zotero username
+letterboxd_id: reivilo3 # can be any name here other than the ones already defined above
 # custom_social: # can be any name here other than the ones already defined above
 #   logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
 #   title: Custom Social

@@ -7,3 +7,4 @@
 - [ ] Add books.
 - [ ] Rm no theme button?
 - [ ] Add Giscus comments.
+- [x] Add `Letterboxd` in socials.
