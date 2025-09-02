@@ -4,7 +4,7 @@
 - [ ] Add professional experience in `cv` section?
 - [ ] Add favorite YouTube channels info.
 - [ ] Add `teaching` section?
-- [ ] Add books.
+- [x] Add books.
 - [ ] Rm no theme button?
 - [ ] Add Giscus comments.
 - [x] Add `Letterboxd` in socials.
