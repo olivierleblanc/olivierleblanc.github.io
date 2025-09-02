@@ -205,6 +205,13 @@ ninja.data = [{
           window.open("https://www.zotero.org/leblanco", "_blank");
         },
       },{
+        id: 'social-letterboxd',
+        title: 'Letterboxd',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://letterboxd.com/reivilo3", "_blank");
+        },
+      },{
       id: 'light-theme',
       title: 'Change theme to light',
       description: 'Change the theme of the site to Light',
