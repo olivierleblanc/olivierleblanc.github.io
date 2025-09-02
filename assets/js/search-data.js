@@ -99,11 +99,26 @@ ninja.data = [{
             window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
           
         },
-      },{id: "books-the-godfather",
-          title: 'The Godfather',
+      },{id: "books-contre-les-élections",
+          title: 'Contre les élections',
           description: "",
           section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather/";
+              window.location.href = "/books/contre_les_elections/";
+            },},{id: "books-investir-dans-l-39-immobilier-locatif-pour-les-nuls",
+          title: 'Investir dans l&amp;#39;immobilier locatif pour les nuls',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/immo_nuls/";
+            },},{id: "books-philosopher-kit-de-démarrage",
+          title: 'Philosopher kit de démarrage',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/philosopher/";
+            },},{id: "books-reinforcement-learning-an-introduction",
+          title: 'Reinforcement Learning - An Introduction',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/reinforcement_learning/";
             },},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
           description: "",
