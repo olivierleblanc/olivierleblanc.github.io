@@ -12,7 +12,7 @@ started: 2025-07-02
 finished: 
 released: 2018
 stars: 5
-goodreads_review: 16
+goodreads_review: 
 status: Reading
 ---
 
