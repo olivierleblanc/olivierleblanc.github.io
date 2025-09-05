@@ -99,11 +99,26 @@ ninja.data = [{
             window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
           
         },
-      },{id: "books-contre-les-élections",
+      },{id: "books-une-brève-histoire-du-temps-du-big-bang-aux-trous-noirs",
+          title: 'Une brève histoire du temps - Du Big Bang aux trous noirs',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/brief_history_of_time/";
+            },},{id: "books-contre-les-élections",
           title: 'Contre les élections',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/contre_les_elections/";
+            },},{id: "books-petit-traité-de-la-décroissance-sereine",
+          title: 'Petit traité de la décroissance sereine',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/decroissance/";
+            },},{id: "books-digital-design-and-computer-architecture-arm-edition",
+          title: 'Digital design and computer architecture - ARM edition',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/digital_design/";
             },},{id: "books-investir-dans-l-39-immobilier-locatif-pour-les-nuls",
           title: 'Investir dans l&amp;#39;immobilier locatif pour les nuls',
           description: "",
@@ -119,6 +134,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/reinforcement_learning/";
+            },},{id: "books-l-39-univers-en-100-questions",
+          title: 'L&amp;#39;univers en 100 questions',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/univers/";
             },},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
           description: "",
@@ -170,6 +190,21 @@ ninja.data = [{
           description: "",
           section: "Youtube",handler: () => {
               window.location.href = "/youtube/3b1b/";
+            },},{id: "youtube-the-science-asylum",
+          title: 'The Science Asylum',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/science_asylum/";
+            },},{id: "youtube-scienteetonnante",
+          title: 'ScienteEtonnante',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/scienceetonnante/";
+            },},{id: "youtube-veritasium",
+          title: 'Veritasium',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/veritasium/";
             },},{
         id: 'social-email',
         title: 'email',
