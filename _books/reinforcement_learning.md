@@ -12,7 +12,7 @@ started: 2025-07-02
 finished: 
 released: 2018
 stars: 5
-goodreads_review: 
+goodreads_review: https://www.goodreads.com/book/show/126517194-2018-reinforcement-learning-second-edition
 status: Reading
 ---
 
