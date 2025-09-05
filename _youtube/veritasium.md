@@ -1,10 +1,10 @@
 ---
 layout: youtube
-title: 3Blue1Brown
-img: /assets/img/youtube/3B1B.png
-channel-url: https://www.youtube.com/@3blue1brown
+title: Veritasium
+img: /assets/img/youtube/veritasium.png
+channel-url: https://www.youtube.com/@veritasium
 category: science
-tags: english
+tag: english
 stars: 5
 ---
 

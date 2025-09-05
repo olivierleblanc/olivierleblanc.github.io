@@ -5,7 +5,7 @@ permalink: /youtube/
 description: Gallery of my favorite YouTube channels.
 nav: false
 nav_order: 3
-display_categories: [science, fun]
+display_categories: [science]
 horizontal: false
 ---
 
