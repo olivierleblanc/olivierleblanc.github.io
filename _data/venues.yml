@@ -5,5 +5,18 @@
 "PhysRev":
   url: https://journals.aps.org/
 
-"Vision":
+"IEEE":
   color: "#009f36"
+
+"IEEE TCI":
+  color: "#009f36"
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6745852
+
+"Master Thesis":
+  color: "#D30000"
+
+"PhD Thesis":
+  color: "#D30000"
+
+"MNRAS":
+  url: https://academic.oup.com/mnras
