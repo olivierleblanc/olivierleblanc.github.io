@@ -190,16 +190,81 @@ ninja.data = [{
           description: "",
           section: "Youtube",handler: () => {
               window.location.href = "/youtube/3b1b/";
+            },},{id: "youtube-ego",
+          title: 'EGO',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/EGO/";
+            },},{id: "youtube-dirtybiology",
+          title: 'DirtyBiology',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/dirtybiology/";
+            },},{id: "youtube-fouloscopie",
+          title: 'Fouloscopie',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/fouloscopie/";
+            },},{id: "youtube-le-réveilleur",
+          title: 'Le Réveilleur',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/lereveilleur/";
+            },},{id: "youtube-le-roi-des-rats",
+          title: 'LE ROI DES RATS',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/leroidesrats/";
+            },},{id: "youtube-monsieur-bidouille",
+          title: 'Monsieur Bidouille',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/monsieur_bidouille/";
+            },},{id: "youtube-monsieur-phi",
+          title: 'Monsieur Phi',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/monsieur_phi/";
+            },},{id: "youtube-passe-science",
+          title: 'Passe-Science',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/passe-science/";
+            },},{id: "youtube-philoxime",
+          title: 'Philoxime',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/philoxime/";
             },},{id: "youtube-the-science-asylum",
           title: 'The Science Asylum',
           description: "",
           section: "Youtube",handler: () => {
               window.location.href = "/youtube/science_asylum/";
-            },},{id: "youtube-scienteetonnante",
-          title: 'ScienteEtonnante',
+            },},{id: "youtube-scienceclic",
+          title: 'ScienceClic',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/scienceclic/";
+            },},{id: "youtube-scienceetonnante",
+          title: 'ScienceEtonnante',
           description: "",
           section: "Youtube",handler: () => {
               window.location.href = "/youtube/scienceetonnante/";
+            },},{id: "youtube-steve-brunton",
+          title: 'Steve Brunton',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/steve_brunton/";
+            },},{id: "youtube-stupid-economics",
+          title: 'Stupid Economics',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/stupid_economics/";
+            },},{id: "youtube-underscore",
+          title: 'Underscore_',
+          description: "",
+          section: "Youtube",handler: () => {
+              window.location.href = "/youtube/underscore/";
             },},{id: "youtube-veritasium",
           title: 'Veritasium',
           description: "",
