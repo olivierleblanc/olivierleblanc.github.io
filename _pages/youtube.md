@@ -5,7 +5,7 @@ permalink: /youtube/
 description: Gallery of my favorite YouTube channels.
 nav: false
 nav_order: 3
-display_categories: [science]
+display_categories: [science, philosophy, economics, world]
 horizontal: false
 ---
 
@@ -15,7 +15,7 @@ horizontal: false
   <!-- Display categorized youtube -->
   {% for category in page.display_categories %}
   <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
+    <h3 class="category">{{ category }}</h3>
   </a>
   {% assign categorized_youtube = site.youtube | where: "category", category %}
   {% assign sorted_youtube = categorized_youtube | sort: "importance" %}
@@ -29,7 +29,7 @@ horizontal: false
     </div>
   </div>
   {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-6">
     {% for youtube in sorted_youtube %}
       {% include youtube.liquid %}
     {% endfor %}
