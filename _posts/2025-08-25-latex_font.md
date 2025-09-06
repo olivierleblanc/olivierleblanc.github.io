@@ -5,6 +5,7 @@ date: 2025-08-25 11:12:00-0400
 description: Adding the LaTeX font on your Windows computer
 tags: latex
 categories: utils
+giscus_comments: true
 related_posts: false
 ---
 
