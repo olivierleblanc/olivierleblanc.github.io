@@ -3,8 +3,8 @@ layout: post
 title: Low-rank circulant matrices
 date: 2024-03-03 11:12:00-0400
 description: Low-rank circulant matrices
-tags: math
-categories: sample-posts
+tags: matrix
+categories: maths
 giscus_comments: true
 related_posts: false
 ---

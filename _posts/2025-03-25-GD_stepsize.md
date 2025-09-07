@@ -3,8 +3,8 @@ layout: post
 title: The ideal constant stepsize of gradient descent
 date: 2024-03-03 11:12:00-0400
 description: The ideal constant stepsize of gradient descent
-tags: math
-categories: sample-posts
+tags: optimization
+categories: maths
 giscus_comments: true
 related_posts: false
 ---
@@ -99,7 +99,7 @@ $$
 meaning that the decreasing of the loss with the iterations of the gradient descent is slower when $\sigma_r \ll \sigma_1$.
 
 <center>
-    <img src="/assets/img/ideal_stepsize.png" alt="Gradient Descent iterations" width="500px">
+    <img src="/assets/img/posts/ideal_stepsize.png" alt="Gradient Descent iterations" width="500px">
 </center>
 
 **Figure 1**: Gradient Descent iterations as a function of the stepsize for the system  $\bs A \bs x = \bs y$ with $\bs A \in \Rbb^{30\times 30}$ of rank $r=5$.  
