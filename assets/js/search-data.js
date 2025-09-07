@@ -44,7 +44,29 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/youtube/";
               },
-            },{id: "post-adding-the-latex-font-on-your-windows-computer",
+            },{id: "post-quantum-bit-teleportation",
+        
+          title: "Quantum bit teleportation",
+        
+        description: "Quantum bit teleportation",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/quantum_teleportation/";
+          
+        },
+      },{id: "post-quantum-pauli-matrices",
+        
+          title: "Quantum Pauli matrices",
+        
+        description: "Quantum Pauli matrices",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/quantum_matrices/";
+          
+        },
+      },{id: "post-adding-the-latex-font-on-your-windows-computer",
         
           title: "Adding the LaTeX font on your Windows computer",
         
