@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@dirtybiology
 category: science
 tags: french
 stars: 4
+giscus_comments: true
 ---
 
 This channel changed my mind multiple times with simple and clear explanations!

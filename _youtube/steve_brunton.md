@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@Eigensteve
 category: science
 tags: english research maths
 stars: 5
+giscus_comments: true
 ---
 
 A rare active researcher who takes the time to communicate the latest advancements in his field!

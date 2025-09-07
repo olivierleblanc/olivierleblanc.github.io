@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@PasseScience
 category: science
 tags: french 
 stars: 5
+giscus_comments: true
 ---
 
 Explaining and illustrating deep concepts in Physics and Computer Science!

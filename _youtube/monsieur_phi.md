@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@MonsieurPhi
 category: philosophy
 tags: french
 stars: 4.5
+giscus_comments: true
 ---
 
 The guy who helps you argumenting anything.

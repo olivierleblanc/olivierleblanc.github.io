@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@StupidEco
 category: economics
 tags: french
 stars: 5
+giscus_comments: true
 ---
 
 Reasoning about our society with an economical point of view.

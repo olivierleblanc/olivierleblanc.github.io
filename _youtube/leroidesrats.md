@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@LEROIDESRATS
 category: world
 tags: french
 stars: 4.5
+giscus_comments: true
 ---
 
 My best discovery of the year 2025. 

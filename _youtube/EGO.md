@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@ego_one
 category: philosophy
 tags: french
 stars: 5
+giscus_comments: true
 ---
 
 My best discovery of the year 2025. 

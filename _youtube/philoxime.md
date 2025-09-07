@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@Philoxime
 category: philosophy
 tags: french 
 stars: 4.5
+giscus_comments: true
 ---
 
 A great guy working at UCLouvain!

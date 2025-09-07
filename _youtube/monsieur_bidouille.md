@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@monsieurbidouille
 category: science
 tags: french maker
 stars: 4.5
+giscus_comments: true
 ---
 
 One of the best english-speaking YouTube channels for vulgarized science!

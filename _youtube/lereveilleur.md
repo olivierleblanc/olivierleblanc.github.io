@@ -6,6 +6,7 @@ channel-url: https://www.youtube.com/@lereveilleur
 category: science
 tags: french energy
 stars: 4
+giscus_comments: true
 ---
 
 Working hard and taking the time to address complex topics in a self-contained manner.
