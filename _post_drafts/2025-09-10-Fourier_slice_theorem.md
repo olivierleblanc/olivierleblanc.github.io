@@ -24,23 +24,30 @@ $$
 \newcommand{\co}{\cos (\theta)} % cos(theta)
 $$
 
+<!-- = \int_{l_{t,\theta}} f \ud s =  -->
+<!-- >        \intfty f(t \co-s \so, t\so + s \co) \ud s, -->
+
 > **Definition. (Radon transform)** 
-> The Radon transform $\cl R f$ of $f: \Rbb^2 \rightarrow \Rbb^2$ is 
+> The Radon transform $$\cl R \{f\}$$ of $f: \Rbb^2 \rightarrow \Rbb$ is 
 > $$
->    \begin{equation}
->        \cl R \{f\}(t, \theta) = \int_{l_{t,\theta}} f \ud s = 
->        \intfty f(t \co-s \so, t\so + s \co) \ud s,
+>    \begin{equation} \label{eq:radon}
+>        \cl R \{f\}(t, \theta) = \iintfty f(x,y) \delta(t-x \co - y \so) \ud x \ud y,
 >    \end{equation}
 > $$
->    for $t \in \Rbb$ and $0\le \theta < \pi$.
+> for $t \in \Rbb$ and $0\le \theta < \pi$.
+
+<center>
+    <img src="/assets/img/posts/fourier_slice_theorem.png" alt="fourier-slice" width="500px">
+</center>
+<div class="caption">
+    Fig. 1: Illustration of the Fourier-slice theorem. 
+</div>
 
 We wish to prove the *Fourier-Slice Theorem* reminded in p.37 of {% cite pomm24 %} \cite{Adcock}
 
 $$
-\begin{equation}
-    \cl{F}_1 \cl R f (\omega, \theta) = \cl F f (\omega 
-    \co, \omega \so),
-    ~~\omega \in \Rbb,~ \theta \in [0,2\pi)
+\begin{equation} \label{eq:fourier_slice}
+    \cl{F}_1 \big\{ \cl R \{ f \} \big\} (\omega, \theta) = \cl F \{ f \} (\omega \co, \omega \so),~~~~\omega \in \Rbb,~ \theta \in [0,2\pi)
 \end{equation}
 $$
 
@@ -49,54 +56,17 @@ is the 1-D Fourier transform with respect to the first component.
 
 *proof*.
 
-The left term writes as
+Using \eqref{eq:radon} and the definition of the Fourier transform, the left term of \eqref{eq:fourier_slice} writes as
 
 $$
-\begin{equation*}
-    \intfty \left( \intfty f(t \co-s \so, t \so + s \co) \ud s \right) 
-    ~ e^{-\im \omega t} \ud t 
-\end{equation*}
+\begin{align} \label{eq:left}
+    &\intfty \left( \iintfty f(x,y) \delta(t-x \co -y \so) \ud x \ud y \right) e^{-\im \omega t} \ud t \\
+    = &\iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega t} \ud t \big) \ud x \ud y \\
+    = &\iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega (x \co+y\so)} \ud t \big) \ud x \ud y \\
+    = &\iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \underbrace{\big(\intfty \delta(t-x \co -y \so) \ud t \big)}_{=1}  \ud x \ud y \\
+    = &\iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \ud x \ud y \\
+    = &\cl F \{ f \} (\omega \co, \omega \so)
+\end{align}
 $$
 
-The second writes 
-
-$$
-\begin{equation*}
-    \iintfty f(t', \alpha) e^{-\im \omega \co t'} e^{-\im \omega \so \alpha} 
-    \ud t' \ud \alpha
-\end{equation*}
-$$
-
-With the following change of variable
-
-$$
-\begin{equation*}
-\left\{ 
-\begin{split}
-    t' &\rightarrow t\co -s\so \\
-    \alpha &\rightarrow t\so + \alpha \co \\ 
-\end{split}
-\right.
-\end{equation*}
-$$
-
-Insert in the right term, we get 
-
-$$
-\begin{align*}
-\begin{split}
-    \iintfty f(t', \alpha) e^{-\im \omega \co t'} e^{-\im \omega \so \alpha} 
-    \ud t' \ud \alpha &\rightarrow \iintfty f(t\co-s\so, t\so+s\co)
-    e^{-\im \omega \co (t\co-\cancel{s\so})} \\
-    & e^{-\im\omega \so 
-    (t\so+\cancel{s\co})} [\ud t \co 
-    - \ud s\so] [\ud t\so + \ud s \co] \\
-    &= \iintfty f(t\co-s\so, t\so+s\co) e^{-\im \omega t} \\
-    & [\ud^2 t \so\co 
-    +\ud t \ud s (\co^2+\so^2) - \ud^2 s \so\co ] \\
-    &= \iintfty f(t\co-s\so, t\so+s\co) e^{-\im \omega t} \ud t \ud s 
-\end{split}
-\end{align*}
-$$
-
-Which concludes the proof. □
+which proves \eqref{eq:fourier_slice}. □

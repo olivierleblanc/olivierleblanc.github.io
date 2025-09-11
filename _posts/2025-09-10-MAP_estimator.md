@@ -15,8 +15,8 @@ $$
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\tinv}[1]{\frac{1}{#1}}
-\DeclareMathOperator*{\argmin}{argmin~}
-\DeclareMathOperator*{\argmax}{argmax~}
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\argmax}{argmax}
 \newcommand{\indep}{\perp \!\! \perp}
 \newcommand{\norm}[2]{\| #1 \|_{#2}}
 $$
