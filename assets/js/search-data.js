@@ -44,7 +44,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/youtube/";
               },
-            },{id: "post-quantum-bit-teleportation",
+            },{id: "post-viewing-a-lagrangian-inverse-problem-as-a-map-estimator",
+        
+          title: "Viewing a Lagrangian inverse problem as a MAP estimator",
+        
+        description: "Viewing a Lagrangian inverse problem as a MAP estimator",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/MAP_estimator/";
+          
+        },
+      },{id: "post-quantum-bit-teleportation",
         
           title: "Quantum bit teleportation",
         
