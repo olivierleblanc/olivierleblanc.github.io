@@ -55,6 +55,17 @@ ninja.data = [{
             window.location.href = "/blog/2025/MAP_estimator/";
           
         },
+      },{id: "post-simple-proof-of-the-fourier-slice-theorem",
+        
+          title: "Simple proof of the Fourier-slice theorem",
+        
+        description: "Simple proof of the Fourier-slice theorem",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/Fourier_slice_theorem/";
+          
+        },
       },{id: "post-quantum-bit-teleportation",
         
           title: "Quantum bit teleportation",
