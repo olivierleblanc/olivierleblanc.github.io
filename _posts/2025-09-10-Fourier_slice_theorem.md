@@ -19,13 +19,9 @@ $$
 \newcommand{\tinv}[1]{\frac{1}{#1}}
 \newcommand{\intfty}{\int_{-\infty}^\infty}
 \newcommand{\iintfty}{\iint_{-\infty}^\infty}
-\newcommand{\norm}[2]{\| #1 \|_{#2}}
 \newcommand{\so}{\sin (\theta)} % sin(theta)
 \newcommand{\co}{\cos (\theta)} % cos(theta)
 $$
-
-<!-- = \int_{l_{t,\theta}} f \ud s =  -->
-<!-- >        \intfty f(t \co-s \so, t\so + s \co) \ud s, -->
 
 > **Definition. (Radon transform)** 
 > The Radon transform $$\cl R \{f\}$$ of $f: \Rbb^2 \rightarrow \Rbb$ is 
