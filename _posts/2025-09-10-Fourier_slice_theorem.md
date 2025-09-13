@@ -43,7 +43,7 @@ $$
     Fig. 1: Illustration of the Fourier-slice theorem. 
 </div>
 
-We wish to prove the *Fourier-Slice Theorem* reminded in p.37 of {% cite pomm24 %} \cite{Adcock}
+We wish to prove the *Fourier-Slice Theorem* reminded in p.37 of {% cite adcock %} 
 
 $$
 \begin{equation} \label{eq:fourier_slice}
@@ -60,13 +60,16 @@ Using \eqref{eq:radon} and the definition of the Fourier transform, the left ter
 
 $$
 \begin{align} \label{eq:left}
-    &\intfty \left( \iintfty f(x,y) \delta(t-x \co -y \so) \ud x \ud y \right) e^{-\im \omega t} \ud t \\
-    = &\iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega t} \ud t \big) \ud x \ud y \\
-    = &\iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega (x \co+y\so)} \ud t \big) \ud x \ud y \\
-    = &\iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \underbrace{\big(\intfty \delta(t-x \co -y \so) \ud t \big)}_{=1}  \ud x \ud y \\
-    = &\iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \ud x \ud y \\
-    = &\cl F \{ f \} (\omega \co, \omega \so)
+    \cl{F}_1 \big\{ \cl R \{ f \} \big\} (\omega, \theta) &= \intfty \left( \iintfty f(x,y) \delta(t-x \co -y \so) \ud x \ud y \right) e^{-\im \omega t} \ud t \\
+    &= \iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega t} \ud t \big) \ud x \ud y \\
+    &= \iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega (x \co+y\so)} \ud t \big) \ud x \ud y \\
+    &= \iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \underbrace{\big(\intfty \delta(t-x \co -y \so) \ud t \big)}_{=1}  \ud x \ud y \\
+    &= \iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \ud x \ud y \\
+    &= \cl F \{ f \} (\omega \co, \omega \so)
 \end{align}
 $$
 
 which proves \eqref{eq:fourier_slice}. □
+
+## References
+{% bibliography %}
