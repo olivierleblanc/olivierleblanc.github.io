@@ -10,7 +10,7 @@ related_posts: true
 ---
 
 $$
-\newcommand{\im}{\mathrm{i}\mkern1mu}
+\newcommand{\im}{\mathrm{i}}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\cl}{\mathcal}
 \newcommand{\ud}{\mathrm{d}} % Infinitesimal part for integration

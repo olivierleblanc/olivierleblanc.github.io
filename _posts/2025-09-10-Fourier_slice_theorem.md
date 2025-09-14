@@ -10,14 +10,15 @@ related_posts: true
 ---
 
 $$
-\newcommand{\im}{\mathrm{i}\mkern1mu}
+\newcommand{\im}{\mathrm{i}}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\cl}{\mathcal}
 \newcommand{\ud}{\mathrm{d}} % Infinitesimal part for integration
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\tinv}[1]{\frac{1}{#1}}
-\newcommand{\intfty}{\int_{-\infty}^\infty}
+\newcommand{\intfty}{\int_{-\infty}^{\infty}}
+\newcommand{\iintfty}{\iint_{-\infty}^{\infty}}
 \newcommand{\so}{\sin (\theta)} % sin(theta)
 \newcommand{\co}{\cos (\theta)} % cos(theta)
 $$
@@ -26,7 +27,7 @@ $$
 > The Radon transform $$\cl R \{f\}$$ of $f: \Rbb^2 \rightarrow \Rbb$ is 
 > $$
 >    \begin{equation} \label{eq:radon}
->        \cl R \{f\}(t, \theta) = \intfty \intfty f(x,y) \delta(t-x \co - y \so) \ud x \ud y,
+>        \cl R \{f\}(t, \theta) = \iintfty f(x,y) \delta(t-x \co - y \so) \ud x \ud y,
 >    \end{equation}
 > $$
 > for $t \in \Rbb$ and $0\le \theta < \pi$.
@@ -55,11 +56,11 @@ Using \eqref{eq:radon} and the definition of the Fourier transform, the left ter
 
 $$
 \begin{align} \label{eq:left}
-    \cl{F}_1 \big\{ \cl R \{ f \} \big\} (\omega, \theta) &= \intfty \left( \intfty \intfty f(x,y) \delta(t-x \co -y \so) \ud x \ud y \right) e^{-\im \omega t} \ud t \\
-    &= \intfty \intfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega t} \ud t \big) \ud x \ud y \\
-    &= \intfty \intfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega (x \co+y\so)} \ud t \big) \ud x \ud y \\
-    &= \intfty \intfty f(x,y) e^{-\im \omega (x \co+y\so)} \underbrace{\big(\intfty \delta(t-x \co -y \so) \ud t \big)}_{=1}  \ud x \ud y \\
-    &= \intfty \intfty f(x,y) e^{-\im \omega (x \co+y\so)} \ud x \ud y \\
+    \cl{F}_1 \big\{ \cl R \{ f \} \big\} (\omega, \theta) &= \intfty \left( \iintfty f(x,y) \delta(t-x \co -y \so) \ud x \ud y \right) e^{-\im \omega t} \ud t \\
+    &= \iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega t} \ud t \big) \ud x \ud y \\
+    &= \iintfty f(x,y) \big( \intfty \delta(t-x \co -y \so) e^{-\im \omega (x \co+y\so)} \ud t \big) \ud x \ud y \\
+    &= \iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \underbrace{\big(\intfty \delta(t-x \co -y \so) \ud t \big)}_{=1}  \ud x \ud y \\
+    &= \iintfty f(x,y) e^{-\im \omega (x \co+y\so)} \ud x \ud y \\
     &= \cl F \{ f \} (\omega \co, \omega \so)
 \end{align}
 $$
