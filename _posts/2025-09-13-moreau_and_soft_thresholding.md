@@ -2,7 +2,7 @@
 layout: post
 title: Moreau envelope, Proximal Operator, and Soft-Thresholding
 date: 2025-09-12 08:12:00-0400
-description: Moreau envelope, Proximal Operator, and Soft-Thresholding
+description: 
 tags: optimization
 categories: maths
 giscus_comments: true
@@ -89,4 +89,20 @@ $$
         &|x|-\frac{\lambda}{2},~~|x|> \lambda, \\
     \end{cases}.
 \end{align}
+$$
+
+<hr>
+
+The *soft-thresholding* operator is of great interest because it is often involved in minimization problems of the form
+$$
+    \begin{equation} \label{eq:inv_prob}
+        \tilde{\bs x} = \mathrm{argmin}_{\bs x} \tinv 2 \| \bs y - \bs{Ax} \|_2^2 + \lambda \| \bs x \|_1
+    \end{equation}
+$$
+that can be solved efficiently by the [*proximal gradient method* (PGM)](https://en.wikipedia.org/wiki/Proximal_gradient_methods_for_learning). 
+For instance, \eqref{eq:inv_prob} can be solved by the iterations
+$$
+    \begin{equation}
+        \bs x^{(k+1)} = \cl S_\lambda \big(\bs x^{(k)} - \alpha \bs A^* (\bs{Ax}^{(k)} - \bs y) \big).
+    \end{equation}
 $$

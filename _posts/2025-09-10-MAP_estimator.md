@@ -2,7 +2,7 @@
 layout: post
 title: Viewing a Lagrangian inverse problem as a MAP estimator
 date: 2025-09-09 08:12:00-0400
-description: Viewing a Lagrangian inverse problem as a MAP estimator
+description: and the Bayesian point estimators
 tags: optimization
 categories: maths
 giscus_comments: true

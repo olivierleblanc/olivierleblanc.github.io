@@ -2,7 +2,7 @@
 layout: post
 title: Quantum Pauli matrices
 date: 2025-09-06 08:12:00-0400
-description: Quantum Pauli matrices
+description: 
 tags: quantum
 categories: maths
 giscus_comments: true

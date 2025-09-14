@@ -2,7 +2,7 @@
 layout: post
 title: Low-rank circulant matrices
 date: 2024-03-03 11:12:00-0400
-description: Low-rank circulant matrices
+description: can be associated to a sparse generating vector
 tags: matrix
 categories: maths
 giscus_comments: true

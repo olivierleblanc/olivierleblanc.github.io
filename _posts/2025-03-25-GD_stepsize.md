@@ -2,7 +2,7 @@
 layout: post
 title: The ideal constant stepsize of gradient descent
 date: 2024-03-03 11:12:00-0400
-description: The ideal constant stepsize of gradient descent
+description: depends on the condition number of the forward operator
 tags: optimization
 categories: maths
 giscus_comments: true
@@ -15,7 +15,6 @@ $$
 \newcommand{\tinv}[1]{\frac{1}{#1}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\Rbb}{\mathbb{R}}
-\newcommand{\im}{\mathrm{i}\mkern1mu}
 \newcommand{\diag}{\mathrm{diag}}
 \newcommand{\upto}[1]{\llbracket #1 \rrbracket}
 $$
@@ -24,7 +23,7 @@ In the aim to compute an approximate solution to the linear inverse problem $\bs
 $$
     \cl L (\bs x^{(k)}, \bs y) = \tinv 2 \|\bs A \bs x^{(k)} -\bs y\|_2^2
 $$
-when $\bs x^{(k)}$ is the $k$-th iterate of the *Gradient Descent* algorithm with zero initialization.
+when $\bs x^{(k)}$ is the $k$-th iterate of the *Gradient Descent* (GD) algorithm with zero initialization.
 It writes $\bs x^{(k)} = \sum_{i=0}^k (\bs I-\alpha \bs A^* \bs A)^i \alpha \bs A^* \bs y$, and writing the SVD decomposition 
 $$
 \bs A := \bs U \bs \Sigma \bs V^*
@@ -42,7 +41,7 @@ $$
 \end{align*}
 $$
 
-Hence,
+Hence, with $$\alpha \triangleq \frac{\eta}{\|\bs A\|^2}$$,
 
 $$
 \begin{align} \label{eq:loss}
@@ -55,10 +54,6 @@ $$
 \end{align}
 $$
 
-with 
-$$
-\alpha \triangleq \frac{\eta}{\|\bs A\|^2}.
-$$
 The third line is obtained from the second line by using the identity 
 
 $$
@@ -85,6 +80,13 @@ $$
     \Leftrightarrow ~& \eta = \frac{2}{1+(\sigma_r/\sigma_1)^2}.
 \end{split}
 \end{align}
+$$
+
+One observes that the ideal constant stepsize of the GD method depends only on the ratio between the smallest and the largest singular value which can be associated to the [condition number](https://en.wikipedia.org/wiki/Condition_number)
+$$
+\begin{equation} \label{eq:condition_number}
+    \kappa(\bs A) := \frac{\sigma_1(\bs A)}{\sigma_r (\bs A)}.
+\end{equation}
 $$
 
 In particular, injecting \eqref{eq:eta} into \eqref{eq:loss} yields 

@@ -2,7 +2,7 @@
 layout: post
 title: Quantum bit teleportation
 date: 2025-09-06 08:12:00-0400
-description: Quantum bit teleportation
+description: 
 tags: quantum
 categories: maths
 giscus_comments: true
