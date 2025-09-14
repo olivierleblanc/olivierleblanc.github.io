@@ -44,11 +44,22 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/youtube/";
               },
-            },{id: "post-viewing-a-lagrangian-inverse-problem-as-a-map-estimator",
+            },{id: "post-moreau-envelope-proximal-operator-and-soft-thresholding",
+        
+          title: "Moreau envelope, Proximal Operator, and Soft-Thresholding",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/moreau_and_soft_thresholding/";
+          
+        },
+      },{id: "post-viewing-a-lagrangian-inverse-problem-as-a-map-estimator",
         
           title: "Viewing a Lagrangian inverse problem as a MAP estimator",
         
-        description: "Viewing a Lagrangian inverse problem as a MAP estimator",
+        description: "and the Bayesian point estimators",
         section: "Posts",
         handler: () => {
           
@@ -59,7 +70,7 @@ ninja.data = [{
         
           title: "Simple proof of the Fourier-slice theorem",
         
-        description: "Simple proof of the Fourier-slice theorem",
+        description: "",
         section: "Posts",
         handler: () => {
           
@@ -70,7 +81,7 @@ ninja.data = [{
         
           title: "Quantum bit teleportation",
         
-        description: "Quantum bit teleportation",
+        description: "",
         section: "Posts",
         handler: () => {
           
@@ -81,7 +92,7 @@ ninja.data = [{
         
           title: "Quantum Pauli matrices",
         
-        description: "Quantum Pauli matrices",
+        description: "",
         section: "Posts",
         handler: () => {
           
@@ -92,7 +103,7 @@ ninja.data = [{
         
           title: "Adding the LaTeX font on your Windows computer",
         
-        description: "Adding the LaTeX font on your Windows computer",
+        description: "",
         section: "Posts",
         handler: () => {
           
@@ -114,7 +125,7 @@ ninja.data = [{
         
           title: "The ideal constant stepsize of gradient descent",
         
-        description: "The ideal constant stepsize of gradient descent",
+        description: "depends on the condition number of the forward operator",
         section: "Posts",
         handler: () => {
           
@@ -125,7 +136,7 @@ ninja.data = [{
         
           title: "Low-rank circulant matrices",
         
-        description: "Low-rank circulant matrices",
+        description: "can be associated to a sparse generating vector",
         section: "Posts",
         handler: () => {
           
