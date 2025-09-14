@@ -96,10 +96,11 @@ $$
 The *soft-thresholding* operator is of great interest because it is often involved in minimization problems of the form
 $$
     \begin{equation} \label{eq:inv_prob}
-        \tilde{\bs x} = \mathrm{argmin}_{\bs x} \tinv 2 \| \bs y - \bs{Ax} \|_2^2 + \lambda \| \bs x \|_1
+        \tilde{\bs x} = \mathrm{argmin}_{\bs x} \tinv 2 \| \bs y - \bs{Ax} \|_2^2 + \lambda \| \bs x \|_1,
     \end{equation}
 $$
-that can be solved efficiently by the [*proximal gradient method* (PGM)](https://en.wikipedia.org/wiki/Proximal_gradient_methods_for_learning). 
+where $$\lambda \| \bs x \|_1$$ is a *convex* but *nondifferentiable* function so that we cannot compute their gradient.
+Eq. \eqref{eq:inv_prob} can be solved efficiently by the [*proximal gradient method* (PGM)](https://en.wikipedia.org/wiki/Proximal_gradient_methods_for_learning) that consists of alternating because a gradient descent step with respect to the differentiable function and a *proximal* step with respect to the nondifferentiable function(s).
 For instance, \eqref{eq:inv_prob} can be solved by the iterations
 $$
     \begin{equation}

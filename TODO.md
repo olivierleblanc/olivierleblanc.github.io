@@ -5,5 +5,4 @@
 - [ ] Add `teaching` section?
 - [ ] Add blog post CHSH game.
 - [ ] Fix Google Scholar citations.
-- [ ] Explain why the soft-thresholding operator is useful.
 - [ ] Inverse Radon transform.
