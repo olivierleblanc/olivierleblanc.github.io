@@ -13,7 +13,7 @@ $$
 \newcommand{\im}{\mathrm{i}\mkern1mu}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\cl}{\mathcal}
-\newcommand{\ud}{\mathrm{d}} % Infinitesimal part for integration
+\newcommand{\ud}{\mathrm{d}} 
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\tinv}[1]{\frac{1}{#1}}
