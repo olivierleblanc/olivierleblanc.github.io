@@ -13,14 +13,14 @@ $$
 \newcommand{\im}{\mathrm{i}}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\cl}{\mathcal}
-\newcommand{\ud}{\mathrm{d}} % Infinitesimal part for integration
+\newcommand{\ud}{\mathrm{d}} 
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\tinv}[1]{\frac{1}{#1}}
 \newcommand{\intfty}{\int_{-\infty}^{\infty}}
 \newcommand{\iintfty}{\iint_{-\infty}^{\infty}}
-\newcommand{\so}{\sin (\theta)} % sin(theta)
-\newcommand{\co}{\cos (\theta)} % cos(theta)
+\newcommand{\so}{\sin (\theta)}
+\newcommand{\co}{\cos (\theta)}
 $$
 
 > **Definition. (Radon transform)** 
