@@ -12,7 +12,7 @@ started: 2022-08-23
 finished: 2022-09-07
 released: 2014
 stars: 5
-goodreads_review: 
+goodreads_review:
 giscus_comments: true
 status: Finished
 ---

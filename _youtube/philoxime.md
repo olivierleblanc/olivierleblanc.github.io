@@ -4,7 +4,7 @@ title: Philoxime
 img: /assets/img/youtube/philoxime.jpeg
 channel-url: https://www.youtube.com/@Philoxime
 category: philosophy
-tags: french 
+tags: french
 stars: 4.5
 giscus_comments: true
 ---

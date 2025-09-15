@@ -20,15 +20,19 @@ $$
 $$
 
 In the aim to compute an approximate solution to the linear inverse problem $\bs{Ax}=\bs y$ with $\bs A \in \Rbb^{n\times n}$ of rank $r \leq n$, one is interested in evaluating the loss
+
 $$
     \cl L (\bs x^{(k)}, \bs y) = \tinv 2 \|\bs A \bs x^{(k)} -\bs y\|_2^2
 $$
-when $\bs x^{(k)}$ is the $k$-th iterate of the *Gradient Descent* (GD) algorithm with zero initialization.
-It writes $\bs x^{(k)} = \sum_{i=0}^k (\bs I-\alpha \bs A^* \bs A)^i \alpha \bs A^* \bs y$, and writing the SVD decomposition 
+
+when $\bs x^{(k)}$ is the $k$-th iterate of the _Gradient Descent_ (GD) algorithm with zero initialization.
+It writes $\bs x^{(k)} = \sum_{i=0}^k (\bs I-\alpha \bs A^* \bs A)^i \alpha \bs A^* \bs y$, and writing the SVD decomposition
+
 $$
 \bs A := \bs U \bs \Sigma \bs V^*
-$$ 
-with the properties $\bs V^* \bs V = \bs I_r$ and $\bs U^* \bs U = \bs I_r$, one gets 
+$$
+
+with the properties $\bs V^* \bs V = \bs I_r$ and $\bs U^* \bs U = \bs I_r$, one gets
 
 $$
 \begin{align*}
@@ -54,14 +58,14 @@ $$
 \end{align}
 $$
 
-The third line is obtained from the second line by using the identity 
+The third line is obtained from the second line by using the identity
 
 $$
 \|\bs{UM} \|_2^2=\langle \bs U \bs M, \bs U \bs M \rangle = \langle \bs U^* \bs U \bs M, \bs M \rangle = \langle \bs M, \bs M \rangle=\|\bs M \|_2^2.
 $$
 
-By convention $\sigma_{\mathrm max} = \sigma_1$. 
-In \eqref{eq:loss}, the first error term is independent of $k$. One cannot do better than targetting the fastest convergence to zero of the second term. 
+By convention $\sigma_{\mathrm max} = \sigma_1$.
+In \eqref{eq:loss}, the first error term is independent of $k$. One cannot do better than targetting the fastest convergence to zero of the second term.
 For a fixed stepsize $\eta$, the best choice must satisfy
 
 $$
@@ -71,7 +75,7 @@ $$
 \end{align*}
 $$
 
-which is reached when 
+which is reached when
 
 $$
 \begin{align} \label{eq:eta}
@@ -83,13 +87,14 @@ $$
 $$
 
 One observes that the ideal constant stepsize of the GD method depends only on the ratio between the smallest and the largest singular value which can be associated to the [condition number](https://en.wikipedia.org/wiki/Condition_number)
+
 $$
 \begin{equation} \label{eq:condition_number}
     \kappa(\bs A) := \frac{\sigma_1(\bs A)}{\sigma_r (\bs A)}.
 \end{equation}
 $$
 
-In particular, injecting \eqref{eq:eta} into \eqref{eq:loss} yields 
+In particular, injecting \eqref{eq:eta} into \eqref{eq:loss} yields
 
 $$
 \begin{align*}
@@ -104,5 +109,5 @@ meaning that the decreasing of the loss with the iterations of the gradient desc
     <img src="/assets/img/posts/ideal_stepsize.png" alt="Gradient Descent iterations" width="500px">
 </center>
 
-**Figure 1**: Gradient Descent iterations as a function of the stepsize for the system  $\bs A \bs x = \bs y$ with $\bs A \in \Rbb^{30\times 30}$ of rank $r=5$.  
+**Figure 1**: Gradient Descent iterations as a function of the stepsize for the system $\bs A \bs x = \bs y$ with $\bs A \in \Rbb^{30\times 30}$ of rank $r=5$.  
 In this experiment, the ideal choice following \eqref{eq:eta} was $\eta^\star = 1.26$.

@@ -37,11 +37,9 @@ layout: default
         {%- for i in (1..empty_stars) -%}
           <i class="fa-regular fa-star fa-sm"></i>
         {%- endfor -%}
-        {% if page.channel-url %}
+        {% if page['channel-url'] %}
           &nbsp;&middot;&nbsp;
-          <a target="_blank" href="{{ page.channel-url }}"
-            ><i class="fa-brands fa-youtube fa-2x"></i>
-          </a>
+          <a target="_blank" href="{{ page.channel-url }}"><i class="fa-brands fa-youtube fa-2x"></i> </a>
         {% endif %}
       </p>
     {% endif %}
@@ -75,7 +73,7 @@ layout: default
       <figure class="empty-review">
         {% if page.img %}
           <a href="{{ page.channel-url }}" target="_blank" rel="noopener">
-          <img class="empty-review-img" alt="{{ page.title }} img" src="{{ page.img }}">
+            <img class="empty-review-img" alt="{{ page.title }} img" src="{{ page.img }}">
           </a>
         {% endif %}
       </figure>
@@ -87,7 +85,7 @@ layout: default
       <figure>
         {% if page.img %}
           <a href="{{ page.channel-url }}" target="_blank" rel="noopener">
-          <img alt="{{ page.title }} img" src="{{ page.img }}">
+            <img alt="{{ page.title }} img" src="{{ page.img }}">
           </a>
           </figure>
         {% endif %}

@@ -12,7 +12,7 @@ started: 2021-01-01
 finished: 2021-02-01
 released: 2020
 stars: 4
-goodreads_review: 
+goodreads_review:
 giscus_comments: true
 status: Finished
 ---

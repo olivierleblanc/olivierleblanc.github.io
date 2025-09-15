@@ -12,7 +12,7 @@ started: 2019-01-01
 finished: 2019-02-01
 released: 2016
 stars: 4
-goodreads_review: 
+goodreads_review:
 giscus_comments: true
 status: Finished
 ---

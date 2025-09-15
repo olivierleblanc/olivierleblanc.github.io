@@ -2,10 +2,10 @@
 
 - Open the project in `VS Code`.
 - Open `Docker`.
-- In `WSL`, run: 
-    ```
-    docker compose up 
-    ```
+- In `WSL`, run:
+  ```
+  docker compose up
+  ```
 - Navigate at `localhost:8080`.
 
 > [!NOTE]

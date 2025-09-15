@@ -2,7 +2,7 @@
 layout: post
 title: Quantum bit teleportation
 date: 2025-09-06 08:12:00-0400
-description: 
+description:
 tags: quantum
 categories: maths
 giscus_comments: true
@@ -13,7 +13,7 @@ $$
 \newcommand{\sqrtt}{\frac{1}{\sqrt 2}}
 $$
 
-Let us consider the situation where a first person `Alice` wants to teleports her qbit state to another person `Bob`. 
+Let us consider the situation where a first person `Alice` wants to teleports her qbit state to another person `Bob`.
 Let us write $A_1$ the qbit that Alice wants to teleports to Bob.
 To do so, Alice needs a second qbit $A_2$ which must be `entangled` with one qbit owned by Bob.
 The situation is illustrated in Fig. 1.
@@ -27,6 +27,7 @@ The situation is illustrated in Fig. 1.
 
 Firstly, let us write $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$ the state of the qbit $A_1$. <br>
 Secondly, $A_2$ and $B$ are entangled as:
+
 $$
 \begin{equation}
     \ket{A_2 B} = \sqrtt (\ket{00} + \ket{11}) = \ket{\Phi^+}.
@@ -34,6 +35,7 @@ $$
 $$
 
 The total initial state is:
+
 $$
 \begin{equation}
     \ket{\psi}_{A_1} \ket{\Phi^+}_{A_2 B} = ( \alpha \ket{0} + \beta \ket{1} ) \sqrtt (\ket{00} + \ket{11}) = \sqrtt \big[ \alpha(\ket{000} + \ket{011}) + \beta (\ket{100} + \ket{111}) \big].
@@ -41,12 +43,15 @@ $$
 $$
 
 The key action for teleporting the qbit is that Alice measures her two qbits in the `Bell` basis:
+
 $$
 \begin{equation}
-    \ket{\Phi^{\pm}} = \sqrtt (\ket{00} \pm \ket{11}),~~\ket{\Psi^{\pm}} = \sqrtt (\ket{01} \pm \ket{10}) 
+    \ket{\Phi^{\pm}} = \sqrtt (\ket{00} \pm \ket{11}),~~\ket{\Psi^{\pm}} = \sqrtt (\ket{01} \pm \ket{10})
 \end{equation}
 $$
+
 which implies
+
 $$
 \begin{align}
 \begin{split}
@@ -57,6 +62,7 @@ $$
 $$
 
 Rewriting the total initial state with the two qbits $A_1,~A_2$ of Alice written in the Bell basis gives:
+
 $$
 \begin{align}
     \ket{\psi}_{A_1} \ket{\Phi^+}_{A_2 B} &= \frac{1}{2} \big[ \alpha (\ket{\Phi^+} \ket{0} + \ket{\Phi^-} \ket{0} + \ket{\Psi^+} \ket{1} + \ket{\Psi^-} \ket{1}) + \beta (\ket{\Psi^+} \ket{0} - \ket{\Psi^-} \ket{0} + \ket{\Phi^+} \ket{1} - \ket{\Phi^-} \ket{1}) \big] \\

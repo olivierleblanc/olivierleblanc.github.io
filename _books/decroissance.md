@@ -12,7 +12,7 @@ started: 2014-01-01
 finished: 2015-01-01
 released: 2007
 stars: 5
-goodreads_review: 
+goodreads_review:
 giscus_comments: true
 status: Finished
 ---

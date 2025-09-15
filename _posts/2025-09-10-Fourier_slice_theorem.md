@@ -2,7 +2,7 @@
 layout: post
 title: Simple proof of the Fourier-slice theorem
 date: 2025-09-09 08:12:00-0400
-description: 
+description:
 tags:
 categories: maths
 giscus_comments: true
@@ -13,7 +13,7 @@ $$
 \newcommand{\im}{\mathrm{i}}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\cl}{\mathcal}
-\newcommand{\ud}{\mathrm{d}} 
+\newcommand{\ud}{\mathrm{d}}
 \newcommand{\Rbb}{\mathbb{R}}
 \newcommand{\Cbb}{\mathbb{C}}
 \newcommand{\tinv}[1]{\frac{1}{#1}}
@@ -23,13 +23,15 @@ $$
 \newcommand{\co}{\cos (\theta)}
 $$
 
-> **Definition. (Radon transform)** 
-> The Radon transform $$\cl R \{f\}$$ of $f: \Rbb^2 \rightarrow \Rbb$ is 
+> **Definition. (Radon transform)**
+> The Radon transform $$\cl R \{f\}$$ of $f: \Rbb^2 \rightarrow \Rbb$ is
+>
 > $$
 >    \begin{equation} \label{eq:radon}
 >        \cl R \{f\}(t, \theta) = \iintfty f(x,y) \delta(t-x \co - y \so) \ud x \ud y,
 >    \end{equation}
 > $$
+>
 > for $t \in \Rbb$ and $0\le \theta < \pi$.
 
 <center>
@@ -39,7 +41,7 @@ $$
     Fig. 1: Illustration of the Fourier-slice theorem. 
 </div>
 
-We wish to prove the *Fourier-Slice Theorem* reminded in p.37 of {% cite adcock %} 
+We wish to prove the _Fourier-Slice Theorem_ reminded in p.37 of {% cite adcock %}
 
 $$
 \begin{equation} \label{eq:fourier_slice}
@@ -47,10 +49,10 @@ $$
 \end{equation}
 $$
 
-Where $\cl F$ denotes the 2-D Fourier transform and $\cl F_1$ 
-is the 1-D Fourier transform with respect to the first component. 
+Where $\cl F$ denotes the 2-D Fourier transform and $\cl F_1$
+is the 1-D Fourier transform with respect to the first component.
 
-*proof*.
+_proof_.
 
 Using \eqref{eq:radon} and the definition of the Fourier transform, the left term of \eqref{eq:fourier_slice} writes as
 
@@ -68,4 +70,5 @@ $$
 which proves \eqref{eq:fourier_slice}. □
 
 ## References
+
 {% bibliography %}

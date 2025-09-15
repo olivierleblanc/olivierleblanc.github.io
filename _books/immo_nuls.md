@@ -9,10 +9,10 @@ categories: invest real_estate
 tags: top-100
 buy_link: https://www.amazon.com.be/Investir-dans-limmobilier-locatif-pour/dp/2412069875
 started: 2025-06-01
-finished: 
+finished:
 released: 2021
 stars: 4
-goodreads_review: 
+goodreads_review:
 giscus_comments: true
 status: Reading
 ---

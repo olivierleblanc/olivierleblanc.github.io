@@ -4,7 +4,7 @@ title: Passe-Science
 img: /assets/img/youtube/passe-science.jpeg
 channel-url: https://www.youtube.com/@PasseScience
 category: science
-tags: french 
+tags: french
 stars: 5
 giscus_comments: true
 ---
