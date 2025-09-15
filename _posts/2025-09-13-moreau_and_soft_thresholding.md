@@ -19,7 +19,7 @@ $$
 \newcommand{\tinv}[1]{\frac{1}{#1}}
 $$
 
-> **Definition. (Moreau envelope)** 
+<!-- > **Definition. (Moreau envelope)** 
 > Let $f: \Rbb^n \rightarrow (-\infty, +\infty]$ be a proper, lower semi-continuous, convex function.
 > For a parameter $\lambda > 0$, the **Moreau envelope** of $f$ with index $\lambda$ is defined as 
 > $$
@@ -33,9 +33,9 @@ $$
 > \begin{equation} \label{eq:prox} 
 >   \mathrm{prox}_{\lambda f} (x) := \mathrm{argmin}_{y \in \Rbb^n} \big\{ f(y) + \tinv{2\lambda} \| x-y \|_2^2 \big\}. 
 > \end{equation} 
-> $$
+> $$ -->
 
-<!-- From \eqref{eq:moreau} and \eqref{eq:prox}, the Moreau enveloppe can be expressed as:
+From \eqref{eq:moreau} and \eqref{eq:prox}, the Moreau enveloppe can be expressed as:
 $$
 \begin{equation} \label{eq:3}
     \mathrm{M}_\lambda f(x) = f(\mathrm{prox}_{\lambda f} (x)) + \tinv{2\lambda} \| x-\mathrm{prox}_{\lambda f} (x) \|_2^2.
@@ -106,4 +106,4 @@ $$
     \begin{equation}
         \bs x^{(k+1)} = \cl S_\lambda \big(\bs x^{(k)} - \alpha \bs A^* (\bs{Ax}^{(k)} - \bs y) \big).
     \end{equation}
-$$ -->
+$$
