@@ -25,7 +25,7 @@ $$
     \cl L (\bs x^{(k)}, \bs y) = \tinv 2 \|\bs A \bs x^{(k)} -\bs y\|_2^2
 $$
 
-when $\bs x^{(k)}$ is the $k$-th iterate of the _Gradient Descent_ (GD) algorithm with zero initialization.
+when $\bs x^{(k)}$ is the $k$-th iterate of the *Gradient Descent* (GD) algorithm with zero initialization.
 It writes $\bs x^{(k)} = \sum_{i=0}^k (\bs I-\alpha \bs A^* \bs A)^i \alpha \bs A^* \bs y$, and writing the SVD decomposition
 
 $$

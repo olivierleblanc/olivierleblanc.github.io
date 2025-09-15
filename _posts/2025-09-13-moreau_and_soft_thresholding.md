@@ -109,7 +109,7 @@ $$
 $$
 
 where $$\lambda \| \bs x \|_1$$ is a _convex_ but _nondifferentiable_ function so that we cannot compute their gradient.
-Eq. \eqref{eq:inv_prob} can be solved efficiently by the [_proximal gradient method_ (PGM)](https://en.wikipedia.org/wiki/Proximal_gradient_methods_for_learning) that consists of alternating because a gradient descent step with respect to the differentiable function and a _proximal_ step with respect to the nondifferentiable function(s).
+Eq. \eqref{eq:inv*prob} can be solved efficiently by the [*proximal gradient method* (PGM)](https://en.wikipedia.org/wiki/Proximal_gradient_methods_for_learning) that consists of alternating because a gradient descent step with respect to the differentiable function and a _proximal_ step with respect to the nondifferentiable function(s).
 For instance, \eqref{eq:inv_prob} can be solved by the iterations
 
 $$

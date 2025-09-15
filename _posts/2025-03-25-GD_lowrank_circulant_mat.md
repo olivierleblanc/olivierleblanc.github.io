@@ -29,7 +29,7 @@ $$
 ), it can be written as
 
 \begin{equation} \label{eq:sparse}
-\bs v = \sum*{q=0}^{K-1} \rho_q \bs e*{p_q}.
+\bs v = \sum_{q=0}^{K-1} \rho_q \bs e_{p_q}.
 \end{equation}
 
 Moreover, let $T(\bs u)$ be the operator that turns a vector $\bs u \in \Cbb^N$ into a circulant matrix, that is, in <em>modulo arithmetic</em> ($u_{k-l} = u_{/k-l/_N}$)
@@ -58,7 +58,7 @@ definition of the coefficients of the DFT matrix
 $F_{jk} = e^{\frac{-\im 2\pi jk}{N}}$. This is the critical property which allows this proof. Finally, the circulant matrix writes as
 
 \begin{equation} \label{eq:not1}
-\bs C = \sum\_{q=0}^{K-1} \rho_q \bs f[p_q] \bs f[p_q]^\*
+\bs C = \sum\_{q=0}^{K-1} \rho_q \bs f[p_q] \bs f[p_q]^*
 \end{equation}
 
 with $\bs f[n] := \bs F_{:,n}$, which makes it rank-$K$.
@@ -94,7 +94,7 @@ With the conventional writing $\bs v = \sum_{l=0}^{N-1} v_l \bs e_l$, a derivati
 Thus
 
 \begin{equation} \label{eq:decomp}
-\bs C = \bs F \diag( \bs v) \bs F^\*  
+\bs C = \bs F \diag( \bs v) \bs F^*  
 \end{equation}
 
 We see that \eqref{eq:quasiSVD} is very close to the SVD definition:
