@@ -44,7 +44,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/youtube/";
               },
-            },{id: "post-moreau-envelope-proximal-operator-and-soft-thresholding",
+            },{id: "post-chsh-game-and-use-of-entanglement",
+        
+          title: "CHSH game and use of entanglement",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/CHSH_game/";
+          
+        },
+      },{id: "post-moreau-envelope-proximal-operator-and-soft-thresholding",
         
           title: "Moreau envelope, Proximal Operator, and Soft-Thresholding",
         
@@ -194,16 +205,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/univers/";
-            },},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
             },},{id: "news-i-obtained-my-pleasure-boat-license-in-martinique-speedboat",
           title: 'I obtained my pleasure boat license in Martinique :speedboat:',
           description: "",
           section: "News",},{id: "news-i-came-back-to-belgium-belgium-after-8-months-abroad-6-months-in-martinique-palm-tree-and-2-months-of-backpacking-in-south-america-colombia-peru-bolivia",
           title: 'I came back to Belgium :belgium: after 8 months abroad: 6 months in...',
+          description: "",
+          section: "News",},{id: "news-i-m-moving-to-brussels-with-my-girlfriend-claire-city-sunrise-ferris-wheel",
+          title: 'I’m moving to Brussels with my girlfriend Claire! :city_sunrise: :ferris_wheel:',
           description: "",
           section: "News",},{id: "youtube-3blue1brown",
           title: '3Blue1Brown',
