@@ -44,7 +44,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/youtube/";
               },
-            },{id: "post-chsh-game-and-use-of-entanglement",
+            },{id: "post-chsh-inequality",
+        
+          title: "CHSH inequality",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/CHSH_inequality/";
+          
+        },
+      },{id: "post-chsh-game-and-use-of-entanglement",
         
           title: "CHSH game and use of entanglement",
         
