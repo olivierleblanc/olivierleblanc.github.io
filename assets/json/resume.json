@@ -79,6 +79,15 @@
   ],
   "travels": [
     {
+      "institution": "Institut-Fresnel, Heriot-Watt University",
+      "location": "Edinburgh, UK",
+      "position": "Visiting Researcher",
+      "url": "",
+      "startDate": "2024-04",
+      "endDate": "2024-04",
+      "summary": "Two weeks of collaborative research on radio-interferometric imaging with the Biomedical and Astronomical Signal Processing (BASP) group led by Yves Wiaux."
+    },
+    {
       "institution": "Washington University",
       "location": "St. Louis, USA",
       "position": "Visiting Researcher",
