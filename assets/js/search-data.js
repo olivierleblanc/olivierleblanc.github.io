@@ -332,7 +332,7 @@ ninja.data = [{
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.linkedin.com/in/olivier-leblanc-210771163", "_blank");
+          window.open("https://www.linkedin.com/in/olivierleblanc3", "_blank");
         },
       },{
         id: 'social-scholar',
