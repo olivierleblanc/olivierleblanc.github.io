@@ -44,7 +44,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/youtube/";
               },
-            },{id: "post-chsh-inequality",
+            },{id: "post-walking-droplets",
+        
+          title: "Walking droplets",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/walking_droplets/";
+          
+        },
+      },{id: "post-chsh-inequality",
         
           title: "CHSH inequality",
         
