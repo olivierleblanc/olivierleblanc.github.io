@@ -5,7 +5,7 @@ author: Christophe Galfard
 cover: assets/img/book_covers/brief_history_of_time.jpg
 olid: # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn: # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: science space
+categories: science space physics
 tags: top-100
 buy_link: https://www.amazon.fr/Une-brève-histoire-temps-trous/dp/2081452014
 started: 2021-01-01

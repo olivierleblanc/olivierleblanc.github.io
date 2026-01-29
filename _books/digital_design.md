@@ -5,7 +5,7 @@ author: Sarah L. Harris & David Money Harris
 cover: assets/img/book_covers/digital_design.jpg
 olid: # use Open Library ID to fetch cover (if no `cover` is provided)
 isbn: # use ISBN to fetch cover (if no `olid` is provided, dashes are optional)
-categories: science space
+categories: science computer
 tags: top-100
 buy_link: https://www.amazon.com/Digital-Design-Computer-Architecture-ARM/dp/0128000562
 started: 2019-01-01
