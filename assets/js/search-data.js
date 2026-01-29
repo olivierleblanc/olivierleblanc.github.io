@@ -207,11 +207,26 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/digital_design/";
+            },},{id: "books-fouloscopie-ce-que-la-foule-dit-de-nous",
+          title: 'Fouloscopie - ce que la foule dit de nous',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/fouloscopie/";
             },},{id: "books-investir-dans-l-39-immobilier-locatif-pour-les-nuls",
           title: 'Investir dans l&amp;#39;immobilier locatif pour les nuls',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/immo_nuls/";
+            },},{id: "books-jouissance-club",
+          title: 'Jouissance Club',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/jouissance_club/";
+            },},{id: "books-le-pouvoir-du-moment-présent",
+          title: 'Le pouvoir du moment présent',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/moment_present/";
             },},{id: "books-philosopher-kit-de-démarrage",
           title: 'Philosopher kit de démarrage',
           description: "",
